@@ -1,11 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
+
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+        <!-- Meta SEO Descriptions -->
+        <meta name="description" content="RipWise is an unpatrolled beach safety system which offers beachgoers an interactive way finder to locate safe swimming zones">
+        <meta name="keywords" content="RipWise, Beach Safety, Drowning, Unpatrolled Beaches, Australia, Navigation">
+        <meta name="author" content="RipWise">
+
         <title>RipWise</title>
+
+        <!-- Link to external CSS -->
+        <link rel="stylesheet" href="style.css">
     </head>
+
     <body>
-        <p>Hello!</p>
+        <div class="dashboard">
+
+            <!-- Sidebar / Navbar -->
+            <div class="sidebar" id="sidebar">
+                <div class="top-box">
+                    <div class="logo-container">
+                        <img id="toggle-btn" class="toggle-btn" src="./assets/icons/close.svg" alt="Toggle Navigation"/>
+                        <h2 class="nav-text">RipWise</h2>
+                        <span class="demo-badge">Demo</span>
+                    </div>
+                    <div class="nav-items">
+                        <ul>
+                            <li><a href="#" class="active">
+                                <svg class="icon" viewBox="0 0 24 24" fill="#2c2f43" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M19.4655 3.44914C19.2225 3.32014 18.9235 3.33414 18.6945 3.48914C18.6715 3.50314 16.4135 4.96914 12.1435 3.14114C7.04251 0.962137 4.46551 3.45114 4.35751 3.55814C4.21651 3.69914 4.13751 3.88914 4.13751 4.08914V21.0011C4.13751 21.4151 4.47351 21.7511 4.88751 21.7511C5.30151 21.7511 5.63751 21.4151 5.63751 21.0011V14.0481C6.26151 13.6201 8.17551 12.6771 11.5525 14.1211C16.5695 16.2681 19.4145 14.4161 19.5315 14.3351C19.7385 14.1951 19.8625 13.9631 19.8625 13.7131V4.11114C19.8625 3.83414 19.7095 3.58014 19.4655 3.44914Z" fill="#2c2f43"/>
+                                </svg>
+                                <span class="nav-text">Swim Zone</span>
+                            </a></li>
+                            <li><a href="#"><img src="./assets/icons/drowning.svg" alt="Drowning Icon" class="icon"><span class="nav-text">Escaping Rips</span></a></li>
+                            <li><a href="#"><img src="./assets/icons/sun-v2.svg" alt="Sun Icon" class="icon"><span class="nav-text">Beach Information</span></a></li>
+                            <li><a href="#"><img src="./assets/icons/accessibility.svg" alt="Accessibility Icon" class="icon"><span class="nav-text">Accessibility</span></a></li>
+                            <li><a href="#"><img src="./assets/icons/language.svg" alt="Language Icon" class="icon"><span class="nav-text">Language</span></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="alert-box">
+                    <img src="./assets/icons/alert-active.svg" alt="Alert Active Icon" class="icon">
+                    <div class="alert-content">
+                        <h3>Live Beach Alerts</h3>
+                        <p>We provide real-time beach safety alerts directly on your phone.</p>
+                        <button>Notify Me</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Content -->
+            <div class="main-content" id="main-content">
+                <div class="content" id="home">
+                    <h2>Main Content Area</h2>
+                    <p>This is the main content section of your dashboard layout.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Link to external JavaScript -->
+        <script src="script.js"></script>
     </body>
+
 </html>
