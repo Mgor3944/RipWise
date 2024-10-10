@@ -293,3 +293,94 @@ body {
     display: flex;
     flex-direction: column;
 }
+
+.rips-flex-container {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.rip-item {
+    flex: 1;
+    min-width: 300px;
+    padding: 20px;
+    background-color: #f0f0f0;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#what-is-rip {
+    flex: 0 1 70%;
+}
+
+#how-to-escape {
+    flex: 1;
+    min-width: 300px;
+}
+
+.rip-title, .rip-details, .rip-extra {
+    margin-bottom: 15px;
+}
+
+.rip-details {
+    display: flex;
+    gap: 15px;
+}
+
+.rip-detail-item {
+    text-align: center;
+    flex: 1;
+}
+
+.rip-detail-item img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+#what-is-rip .rip-explanation{
+    font-weight: 100 !important; /* not sure why this is not changing the font-weight */
+    /* font-size: 14px; */
+}
+
+.escape-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.escape-step {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 10px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.escape-step img {
+    width: 50px;
+    height: 50px;
+}
+
+.escape-step h4 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.escape-step p {
+    margin: 0;
+    font-size: 14px;
+    font-weight: normal;
+}
+
+.escape-step img {
+    width: 90px;
+    height: 90px;
+}
+
+.rip-title, .rip-details{
+    margin-bottom: 50px;
+}
