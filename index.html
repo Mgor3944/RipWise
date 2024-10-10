@@ -76,7 +76,9 @@
                     <div class="alert-content">
                         <h3>Live Beach Alerts</h3>
                         <p>We provide real-time beach safety alerts directly on your phone.</p>
-                        <button>Notify Me</button>
+                        <a href="#" class="nav-link" data-target="beach-alerts" style="display: flex; justify-content: center; align-items: center;">
+                            <button>Notify Me</button>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -94,10 +96,9 @@
                 <div class="content rip-current" id="rip-current">
                     <h2 style="margin-bottom: 30px;">Rip Current</h2>
                     <div class="rips-flex-container">
+                        <!-- left side what is a rip -->
                         <div class="rip-item" id="what-is-rip">
-                            <div class="rip-title">
-                                <h3>What Is A Rip?</h3>
-                            </div>
+                            <h3 class="rip-title">What Is A Rip?</h3>
                             <div class="rip-details">
                                 <div class="rip-detail-item">
                                     <img src="./assets/icons/alert.svg" alt="Rip Icon 1">
@@ -113,9 +114,10 @@
                                 </div>
                             </div>
                             <div class="rip-extra">
-                                <img src="./assets/images/rip_diagram.png" style="width:80%; margin: 0 auto; display: block;" alt="Rip Current Diagram">
+                                <img src="./assets/images/rip_diagram.png" style="width:100%; margin: 0 auto; display: block;" alt="Rip Current Diagram">
                             </div>
                         </div>
+                        <!-- Right side how to escape -->
                         <div class="rip-item" id="how-to-escape">
                             <h3 style="margin-bottom: 25px;">How To Escape It</h3>
                             <div class="escape-steps">
@@ -127,23 +129,23 @@
                                     </div>
                                 </div>
                                 <div class="escape-step">
-                                    <img src="./assets/rip-escape/step2.png" alt="Step 1">
+                                    <img src="./assets/rip-escape/step2.png" alt="Step 2">
                                     <div class="escape-step-content">
                                         <h4>Step 2</h4>
                                         <p>Swim across the rip</p>
                                     </div>
                                 </div>
                                 <div class="escape-step">
-                                    <img src="./assets/rip-escape/step3.png" alt="Step 1">
+                                    <img src="./assets/rip-escape/step3.png" alt="Step 3">
                                     <div class="escape-step-content">
                                         <h4>Step 3</h4>
                                         <p>Swim back to the sand</p>
                                     </div>
                                 </div>
-                                <div class="escape-step">
-                                    <img src="./assets/rip-escape/step4.png" alt="Step 1">
+                                <div class="escape-step" id="do-not-step">
+                                    <img src="./assets/rip-escape/step4.png" alt="do-not">
                                     <div class="escape-step-content">
-                                        <h4>Step 4</h4>
+                                        <u><h4>DO NOT</h4></u>
                                         <p>Do not swim against the direction of the rip current</p>
                                     </div>
                                 </div>
@@ -156,6 +158,122 @@
                 <div class="content beach-info" id="beach-info">
                     <h2>Beach Info</h2>
                     <p>This is the main content section of your dashboard layout.</p>
+                </div>
+
+                <!-- Beach Alerts -->
+                <div class="content beach-alerts" id="beach-alerts">
+                    <h2>Beach Alerts</h2>
+                    <div class="beach-alert-wrapper">
+                        <h3 style="margin-bottom: 20px;">Get Live Updates With Beach Alerts</h3>
+                        <div class="beach-alert-big-div beach-alert-content">
+                            <!-- Left side of selecting preferences -->
+                            <div class="beach-alert-left">
+                                <p style="margin-bottom: 15px;">Select your preferences</p>
+                                <div class="accordion">
+                                    <!-- accordion menu -->
+                                    <div class="accordion-item">
+                                        <button class="accordion-button">Animals</button>
+                                        <div class="accordion-content">
+                                            <p>Information about animals at the beach.</p>
+                                            <div class="checkbox-container">
+                                                <label><input type="checkbox"> Alert 1</label>
+                                                <label><input type="checkbox"> Alert 2</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item">
+                                        <button class="accordion-button">Weather</button>
+                                        <div class="accordion-content">
+                                            <p>Weather updates and forecasts.</p>
+                                            <div class="checkbox-container">
+                                                <label><input type="checkbox"> Alert 1</label>
+                                                <label><input type="checkbox"> Alert 2</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item">
+                                        <button class="accordion-button">Sun</button>
+                                        <div class="accordion-content">
+                                            <p>Sun safety tips and UV index.</p>
+                                            <div class="checkbox-container">
+                                                <label><input type="checkbox"> Alert 1</label>
+                                                <label><input type="checkbox"> Alert 2</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item">
+                                        <button class="accordion-button">Ocean</button>
+                                        <div class="accordion-content">
+                                            <p>Ocean conditions and tides.</p>
+                                            <div class="checkbox-container">
+                                                <label><input type="checkbox"> Alert 1</label>
+                                                <label><input type="checkbox"> Alert 2</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item">
+                                        <button class="accordion-button">Other</button>
+                                        <div class="accordion-content">
+                                            <p>Other important beach alerts.</p>
+                                            <div class="checkbox-container">
+                                                <label><input type="checkbox"> Alert 1</label>
+                                                <label><input type="checkbox"> Alert 2</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Right side selecting time -->
+                            <div class="beach-alert-right">
+                                <p style="margin-bottom: 15px;">Contactable Time</p>
+                                <div class="contact-time-options" style="display: flex; align-items: center; gap: 10px;">
+                                    <!-- dropdown 1 -->
+                                    <label>From: 
+                                        <select name="from-time">
+                                            <option value="05:00">05:00 AM</option>
+                                            <option value="06:00">06:00 AM</option>
+                                            <option value="07:00">07:00 AM</option>
+                                            <option value="08:00">08:00 AM</option>
+                                            <option value="09:00">09:00 AM</option>
+                                            <option value="10:00">10:00 AM</option>
+                                            <option value="11:00">11:00 AM</option>
+                                            <option value="12:00">12:00 PM</option>
+                                            <option value="13:00">01:00 PM</option>
+                                            <option value="14:00">02:00 PM</option>
+                                            <option value="15:00">03:00 PM</option>
+                                            <option value="16:00">04:00 PM</option>
+                                            <option value="17:00">05:00 PM</option>
+                                            <option value="18:00">06:00 PM</option>
+                                            <option value="19:00">07:00 PM</option>
+                                            <option value="20:00">08:00 PM</option>
+                                        </select>
+                                    </label>
+                                    <!-- dropdown 2 -->
+                                    <label>To: 
+                                        <select>
+                                            <option value="05:00">05:00 AM</option>
+                                            <option value="06:00">06:00 AM</option>
+                                            <option value="07:00">07:00 AM</option>
+                                            <option value="08:00">08:00 AM</option>
+                                            <option value="09:00">09:00 AM</option>
+                                            <option value="10:00">10:00 AM</option>
+                                            <option value="11:00">11:00 AM</option>
+                                            <option value="12:00">12:00 PM</option>
+                                            <option value="13:00">01:00 PM</option>
+                                            <option value="14:00">02:00 PM</option>
+                                            <option value="15:00">03:00 PM</option>
+                                            <option value="16:00">04:00 PM</option>
+                                            <option value="17:00">05:00 PM</option>
+                                            <option value="18:00">06:00 PM</option>
+                                            <option value="19:00">07:00 PM</option>
+                                            <option value="20:00">08:00 PM</option>
+                                        </select>
+                                    </label>
+                                </div>
+                                <button type="submit" id="alerts-submit">Submit</button>
+                            </div>
+                        </div>    
+                    </div>
                 </div>
 
                 <!-- Accessibility -->

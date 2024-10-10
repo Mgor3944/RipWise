@@ -294,6 +294,16 @@ body {
     flex-direction: column;
 }
 
+/* Alerts Styling */
+.main-content .beach-alerts.active {
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+/* Rip Page */
+
 .rips-flex-container {
     display: flex;
     gap: 20px;
@@ -381,6 +391,88 @@ body {
     height: 90px;
 }
 
+#do-not-step{
+    margin-top: 100px;
+}
+
 .rip-title, .rip-details{
     margin-bottom: 50px;
+}
+
+
+
+/* Beach Alert Page */
+
+.beach-alert-wrapper {
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    justify-content: top;
+    min-height: 60vh;
+    margin-left:10vw;
+    margin-top:17vh;
+}
+
+.beach-alert-big-div {
+    width: 100%;
+    padding: 20px 20px 20px 0px;
+    box-sizing: border-box;
+}
+
+.beach-alert-content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.beach-alert-title {
+    height: 20%;
+}
+
+.beach-alert-left, .beach-alert-right {
+    width: 40%;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.accordion-item {
+    margin-bottom: 10px;
+}
+
+.accordion-button {
+    width: 100%;
+    padding: 15px;
+    text-align: left;
+    background-color: #f1f1f1;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.accordion-button:hover {
+    background-color: #e2e2e2;
+}
+
+.accordion-content {
+    display: none;
+    padding: 15px;
+    background-color: #fafafa;
+    border-top: 1px solid #ddd;
+}
+
+.accordion-button.active + .accordion-content {
+    display: block;
+}
+
+.checkbox-container {
+    display: flex;
+    gap: 20px;
+    padding-top: 10px;
+}
+
+#alerts-submit{
+    padding: 5px 20px;
+    position: absolute;
+    bottom: 10px;
 }
