@@ -618,14 +618,21 @@ body {
     /* border: 1px red solid; */
 }
 
-#get-alerts .content .alert-container-inner .alert-form .alert-time .form-container .contact-time-options {
+.form-container .contact-time-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    width: 100%;
+}
+
+#get-alerts .content .alert-container-inner .alert-form .alert-time .form-container .contact-time-wrap .contact-time-options {
     display: flex;
     flex-direction: row;
     gap: 30px;
     width: 100%;
 }
 
-.contact-time-options label {
+.contact-time-wrap .contact-time-options label {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -635,7 +642,7 @@ body {
     color: var(--secondary-slate);
 }
 
-.contact-time-options select {
+.contact-time-wrap .contact-time-options select {
     width: 100%;
     padding: 15px 30px;
     margin-top: 5px;
@@ -650,11 +657,11 @@ body {
 }
 
 /* Hover effect */
-.contact-time-options select:hover {
+.contact-time-wrap .contact-time-options select:hover {
     border-color: var(--primary-blue);
 }
 
-.contact-time-options select:focus {
+.contact-time-wrap .contact-time-options select:focus {
     outline: none;
     border: 1px solid var(--primary-blue);
     transition: box-shadow 0.2s ease-in-out, border-color 0.2s ease-in-out;

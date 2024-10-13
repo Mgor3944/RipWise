@@ -96,30 +96,38 @@ window.onload = () => {
 document.addEventListener('DOMContentLoaded', () => {
     const fromTimeSelect = document.querySelector('.from-time');
     const toTimeSelect = document.querySelector('.to-time');
+    const errorMessage = document.querySelector('.time-error-message');
 
-    function checkForSameTimes() {
+    function checkTimes() {
         const fromTimeValue = fromTimeSelect.value;
         const toTimeValue = toTimeSelect.value;
 
-        // If "From" and "To" times are the same, alert the user and highlight the select boxes
         if (fromTimeValue === toTimeValue) {
+            // If "From" and "To" times are the same, display error message and highlight the select boxes
             fromTimeSelect.style.border = '1px solid red';
             toTimeSelect.style.border = '1px solid red';
-            alert('The "From" and "To" times cannot be the same. Please select different times.');
+            errorMessage.style.display = 'block';
+            errorMessage.textContent = 'From and cannot be the same';
+        } else if (fromTimeValue > toTimeValue) {
+            // If "From" time is after "To" time, display error message and highlight the select boxes
+            fromTimeSelect.style.border = '1px solid red';
+            toTimeSelect.style.border = '1px solid red';
+            errorMessage.style.display = 'block';
+            errorMessage.textContent = 'The "From" time is later than the "To" time';
         } else {
-            // Reset border when the times are different
+            // Reset styles when the times are valid
             fromTimeSelect.style.border = '';
             toTimeSelect.style.border = '';
+            errorMessage.style.display = 'none';
         }
     }
 
     // Add event listeners to the "From" and "To" dropdowns
-    fromTimeSelect.addEventListener('change', checkForSameTimes);
-    toTimeSelect.addEventListener('change', checkForSameTimes);
+    fromTimeSelect.addEventListener('change', checkTimes);
+    toTimeSelect.addEventListener('change', checkTimes);
 });
 
 // Load Leaflett Interactive Map
-// Wait until the DOM is fully loaded
 document.addEventListener('DOMContentLoaded', function () {
     // Initialize the map and set its view to a given geographical location and zoom level
     var map = L.map('map').setView([-33.698838, 151.309927], 17); // Turimetta Beach coordinates [latitude, longitude] and zoom level
