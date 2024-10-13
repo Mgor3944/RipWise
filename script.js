@@ -36,12 +36,12 @@ function closeAllAccordions() {
 }
 
 function handleSelection(checkbox) {
-    const selectedItems = document.querySelector('.selected-items');
+    const selectedItems = document.querySelector('.alerts-wrap'); // Div where selected items will appear inside
     const label = checkbox.parentElement.textContent.trim();
 
     if (checkbox.checked) {
         const selectedAlert = document.createElement('div');
-        selectedAlert.className = 'alertSelected';
+        selectedAlert.className = 'chosenAlert';
         selectedAlert.id = label; // Assign unique ID for each alert
         selectedAlert.dataset.label = label; // Store label for reference
 
@@ -77,10 +77,72 @@ function handleSelection(checkbox) {
 
 // Visibility of Selected Alerts Section
 function toggleSelectedItemsVisibility() {
-    const selectedItems = document.querySelector('.selected-items');
+    const selectedItemsDiv = document.querySelector('.selected-alerts'); // parent div
+    const selectedItems = document.querySelector('.alerts-wrap'); // div where active alerts go
     if (selectedItems.children.length > 0) {
-        selectedItems.style.display = 'flex';
+        selectedItemsDiv.style.display = 'flex';
     } else {
-        selectedItems.style.display = 'none';
+        selectedItemsDiv.style.display = 'none';
     }
 }
+
+// Focus on first select box --> Get Alerts
+window.onload = () => {
+    const fromTimeSelect = document.querySelector('.from-time');
+    fromTimeSelect.focus(); // Set focus on the first select box
+};
+
+// Ensures that from time and to time are never the same --> Get Alerts
+document.addEventListener('DOMContentLoaded', () => {
+    const fromTimeSelect = document.querySelector('.from-time');
+    const toTimeSelect = document.querySelector('.to-time');
+
+    function checkForSameTimes() {
+        const fromTimeValue = fromTimeSelect.value;
+        const toTimeValue = toTimeSelect.value;
+
+        // If "From" and "To" times are the same, alert the user and highlight the select boxes
+        if (fromTimeValue === toTimeValue) {
+            fromTimeSelect.style.border = '1px solid red';
+            toTimeSelect.style.border = '1px solid red';
+            alert('The "From" and "To" times cannot be the same. Please select different times.');
+        } else {
+            // Reset border when the times are different
+            fromTimeSelect.style.border = '';
+            toTimeSelect.style.border = '';
+        }
+    }
+
+    // Add event listeners to the "From" and "To" dropdowns
+    fromTimeSelect.addEventListener('change', checkForSameTimes);
+    toTimeSelect.addEventListener('change', checkForSameTimes);
+});
+
+// Load Leaflett Interactive Map
+// Wait until the DOM is fully loaded
+document.addEventListener('DOMContentLoaded', function () {
+    // Initialize the map and set its view to a given geographical location and zoom level
+    var map = L.map('map').setView([-33.698838, 151.309927], 17); // Turimetta Beach coordinates [latitude, longitude] and zoom level
+
+    // Load and display tile layers on the map (e.g., from OpenStreetMap)
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+
+    // Add a marker for the kiosk location
+    var kioskMarker = L.marker([-33.696700, 151.310085]).addTo(map);
+    kioskMarker.bindPopup('<b>RipWise Kiosk</b><br>This is where you are located.').openPopup();
+
+    // Add a marker for the safe swim zone location
+    var safeSwimMarker = L.marker([-33.699537, 151.309504]).addTo(map);
+    safeSwimMarker.bindPopup('<b>Safe Swim Zone</b><br>Designated safe swimming area.').openPopup();
+
+    // Create a polyline to show the path from the kiosk to the safe swim zone
+    var latlngs = [
+        [-33.696700, 151.310085], // Kiosk location
+        [-33.699537, 151.309504]  // Safe swim zone location
+    ];
+
+    var polyline = L.polyline(latlngs, { color: 'blue', weight: 4, opacity: 0.7 }).addTo(map);
+    polyline.bindPopup('Path from Kiosk to Safe Swim Zone');
+});
