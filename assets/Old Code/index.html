@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+        <!-- Meta SEO Descriptions -->
+        <meta name="description" content="RipWise is an unpatrolled beach safety system which offers beachgoers an interactive way finder to locate safe swimming zones">
+        <meta name="keywords" content="RipWise, Beach Safety, Drowning, Unpatrolled Beaches, Australia, Navigation">
+        <meta name="author" content="RipWise">
+
+        <title>RipWise</title>
+
+        <!-- Link to external CSS -->
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body>
+        <div class="dashboard">
+
+            <!-- Sidebar / Navbar -->
+            <div class="sidebar" id="sidebar">
+                <div class="top-box">
+                    <div class="logo-container">
+                        <img id="toggle-btn" class="toggle-btn" src="./assets/icons/menu.svg" alt="Toggle Navigation"/>
+                        <h2 class="nav-text">RipWise</h2>
+                        <span class="demo-badge">Demo</span>
+                    </div>
+                    <div class="nav-items">
+                        <ul>
+                            <li>
+                                <a href="#" class="nav-link" data-target="home">
+                                    <svg class="icon" viewBox="0 0 24 24" fill="#2c2f43" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M19.4655 3.44914C19.2225 3.32014 18.9235 3.33414 18.6945 3.48914C18.6715 3.50314 16.4135 4.96914 12.1435 3.14114C7.04251 0.962137 4.46551 3.45114 4.35751 3.55814C4.21651 3.69914 4.13751 3.88914 4.13751 4.08914V21.0011C4.13751 21.4151 4.47351 21.7511 4.88751 21.7511C5.30151 21.7511 5.63751 21.4151 5.63751 21.0011V14.0481C6.26151 13.6201 8.17551 12.6771 11.5525 14.1211C16.5695 16.2681 19.4145 14.4161 19.5315 14.3351C19.7385 14.1951 19.8625 13.9631 19.8625 13.7131V4.11114C19.8625 3.83414 19.7095 3.58014 19.4655 3.44914Z" fill="#2c2f43"/>
+                                    </svg>
+                                    <span class="nav-text">Safe Swim Zone</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="nav-link" data-target="rip-current">
+                                    <svg class="icon" viewBox="0 0 24 24" fill="#2c2f43" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M11.9263 13.2086C13.5265 13.2086 14.8243 11.8999 14.8243 10.2846C14.8243 8.66942 13.5265 7.35986 11.9263 7.35986C10.3256 7.35986 9.02783 8.66937 9.02783 10.2846C9.02783 11.8999 10.3255 13.2086 11.9263 13.2086Z" fill="#2c2f43"/>
+                                        <path d="M18.273 3.21544C18.0198 2.94141 17.5943 2.92701 17.3231 3.18249C17.0516 3.43792 16.6833 4.70789 16.6859 4.71042C16.6884 4.71284 17.9691 4.42856 18.2403 4.17303C18.5119 3.9176 18.5262 3.48903 18.273 3.21544Z" fill="#2c2f43"/>
+                                        <path d="M16.7683 7.24609C17.0822 7.09121 17.2125 6.7092 17.0591 6.39192C16.9054 6.07508 16.5264 5.944 16.2125 6.09853C15.8985 6.25346 15.2201 7.29517 15.2216 7.29849C15.2227 7.30136 16.4543 7.40146 16.7683 7.24609Z" fill="#2c2f43"/>
+                                        <path d="M15.3825 4.44689C15.5667 4.03401 15.3841 3.54858 14.975 3.36322C14.5654 3.17691 14.0849 3.36114 13.9005 3.77402C13.7167 4.18691 13.8941 5.77704 13.8982 5.77867C13.9023 5.7803 15.1987 4.85933 15.3825 4.44689Z" fill="#2c2f43"/>
+                                        <path d="M8.29521 17.9034V19.9827C8.29521 20.9663 10.4871 21.6997 12.0002 21.6997C13.5133 21.6997 15.7049 20.9663 15.7049 19.9827V17.9034L22.6608 10.0637C23.1444 9.52797 23.1064 8.6985 22.5758 8.21064C22.0449 7.7223 21.222 7.76104 20.7385 8.2959L15.5475 12.8079C13.5086 14.5798 10.4915 14.5798 8.45298 12.8079L3.26168 8.2959C2.77797 7.76104 1.95546 7.7223 1.42451 8.21064C0.89357 8.6985 0.85561 9.52797 1.33918 10.0637L8.29521 17.9034Z" fill="#2c2f43"/>
+                                    </svg>
+                                    <span class="nav-text">Escaping Rips</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="nav-link" data-target="beach-info">
+                                    <img src="./assets/icons/sun-v2.svg" alt="Sun Icon" class="icon">
+                                    <span class="nav-text">Beach Information</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="nav-link" data-target="accessibility">
+                                    <img src="./assets/icons/accessibility.svg" alt="Accessibility Icon" class="icon">
+                                    <span class="nav-text">Accessibility</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="nav-link" data-target="language">
+                                    <img src="./assets/icons/language.svg" alt="Language Icon" class="icon">
+                                    <span class="nav-text">Language</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="alert-box">
+                    <img src="./assets/icons/alert-active.svg" alt="Alert Active Icon" class="icon">
+                    <div class="alert-content">
+                        <h3>Live Beach Alerts</h3>
+                        <p>We provide real-time beach safety alerts directly on your phone.</p>
+                        <a href="#" class="nav-link" data-target="beach-alerts" style="display: flex; justify-content: center; align-items: center;">
+                            <button>Notify Me</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Content -->
+            <div class="main-content" id="main-content">
+
+                <!-- Safe Swim Zone -->
+                <div class="content home" id="home">
+                    <h2>Safe Swim Zone</h2>
+                    <p>This is the main content section of your dashboard layout.</p>
+                </div>
+
+                <!-- Rip Current - Bill work here -->
+                <div class="content rip-current" id="rip-current">
+                    <h2 style="margin-bottom: 30px;">Rip Current</h2>
+                    <div class="rips-flex-container">
+                        <!-- left side what is a rip -->
+                        <div class="rip-item" id="what-is-rip">
+                            <h3 class="rip-title">What Is A Rip?</h3>
+                            <div class="rip-details">
+                                <div class="rip-detail-item">
+                                    <img src="./assets/icons/alert.svg" alt="Rip Icon 1">
+                                    <p class="rip-explanation">A rip is a very strong and narrow current that flows out to the sea.</p>
+                                </div>
+                                <div class="rip-detail-item">
+                                    <img src="./assets/icons/alert.svg" alt="Rip Icon 2">
+                                    <p class="rip-explanation">It is usually has darker patches of water with no breaking waves.</p>
+                                </div>
+                                <div class="rip-detail-item">
+                                    <img src="./assets/icons/alert.svg" alt="Rip Icon 3">
+                                    <p class="rip-explanation">Rip currents can reach speeds faster than olympic swimmers</p>
+                                </div>
+                            </div>
+                            <div class="rip-extra">
+                                <img src="./assets/images/rip_diagram.png" style="width:100%; margin: 0 auto; display: block;" alt="Rip Current Diagram">
+                            </div>
+                        </div>
+                        <!-- Right side how to escape -->
+                        <div class="rip-item" id="how-to-escape">
+                            <h3 style="margin-bottom: 25px;">How To Escape It</h3>
+                            <div class="escape-steps">
+                                <div class="escape-step">
+                                    <img src="./assets/images/rip-escape/step1.png" alt="Step 1">
+                                    <div class="escape-step-content">
+                                        <h4>Step 1</h4>
+                                        <p>Don’t panic, stay calm!</p>
+                                    </div>
+                                </div>
+                                <div class="escape-step">
+                                    <img src="./assets/images/rip-escape/step2.png" alt="Step 2">
+                                    <div class="escape-step-content">
+                                        <h4>Step 2</h4>
+                                        <p>Swim across the rip</p>
+                                    </div>
+                                </div>
+                                <div class="escape-step">
+                                    <img src="./assets/images/rip-escape/step3.png" alt="Step 3">
+                                    <div class="escape-step-content">
+                                        <h4>Step 3</h4>
+                                        <p>Swim back to the sand</p>
+                                    </div>
+                                </div>
+                                <div class="escape-step" id="do-not-step">
+                                    <img src="./assets/images/rip-escape/step4.png" alt="do-not">
+                                    <div class="escape-step-content">
+                                        <u><h4>DO NOT</h4></u>
+                                        <p>Do not swim against the direction of the rip current</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Beach Info -->
+                <div class="content beach-info" id="beach-info">
+                    <h2>Beach Info</h2>
+                    <div id="weather-container">
+                        <h2>RipWise Weather Data</h2>
+                        <img id="weather-icon" alt="Weather Icon">
+                        <div id="temp-div"></div>
+                        <div id="weather-info"></div>
+                        <div id="hourly-forecast"></div>
+                    </div>
+                </div>
+
+                <!-- Beach Alerts -->
+                <div class="content beach-alerts" id="beach-alerts">
+                    <h2>Beach Alerts</h2>
+                    <div class="beach-alert-wrapper">
+                        <h3 style="margin-bottom: 20px;">Get Live Updates With Beach Alerts</h3>
+                        <div class="beach-alert-big-div beach-alert-content">
+                            <!-- Left side of selecting preferences -->
+                            <div class="beach-alert-left">
+                                <p style="margin-bottom: 15px;">Select your preferences</p>
+                                <div class="accordion">
+                                    <!-- accordion menu -->
+                                    <div class="accordion-item">
+                                        <button class="accordion-button">Animals</button>
+                                        <div class="accordion-content">
+                                            <p>Information about animals at the beach.</p>
+                                            <div class="checkbox-container">
+                                                <label><input type="checkbox"> Alert 1</label>
+                                                <label><input type="checkbox"> Alert 2</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item">
+                                        <button class="accordion-button">Weather</button>
+                                        <div class="accordion-content">
+                                            <p>Weather updates and forecasts.</p>
+                                            <div class="checkbox-container">
+                                                <label><input type="checkbox"> Alert 1</label>
+                                                <label><input type="checkbox"> Alert 2</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item">
+                                        <button class="accordion-button">Sun</button>
+                                        <div class="accordion-content">
+                                            <p>Sun safety tips and UV index.</p>
+                                            <div class="checkbox-container">
+                                                <label><input type="checkbox"> Alert 1</label>
+                                                <label><input type="checkbox"> Alert 2</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item">
+                                        <button class="accordion-button">Ocean</button>
+                                        <div class="accordion-content">
+                                            <p>Ocean conditions and tides.</p>
+                                            <div class="checkbox-container">
+                                                <label><input type="checkbox"> Alert 1</label>
+                                                <label><input type="checkbox"> Alert 2</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item">
+                                        <button class="accordion-button">Other</button>
+                                        <div class="accordion-content">
+                                            <p>Other important beach alerts.</p>
+                                            <div class="checkbox-container">
+                                                <label><input type="checkbox"> Alert 1</label>
+                                                <label><input type="checkbox"> Alert 2</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Right side selecting time -->
+                            <div class="beach-alert-right">
+                                <p style="margin-bottom: 15px;">Contactable Time</p>
+                                <div class="contact-time-options" style="display: flex; align-items: center; gap: 10px;">
+                                    <!-- dropdown 1 -->
+                                    <label>From: 
+                                        <select name="from-time">
+                                            <option value="05:00">05:00 AM</option>
+                                            <option value="06:00">06:00 AM</option>
+                                            <option value="07:00">07:00 AM</option>
+                                            <option value="08:00">08:00 AM</option>
+                                            <option value="09:00">09:00 AM</option>
+                                            <option value="10:00">10:00 AM</option>
+                                            <option value="11:00">11:00 AM</option>
+                                            <option value="12:00">12:00 PM</option>
+                                            <option value="13:00">01:00 PM</option>
+                                            <option value="14:00">02:00 PM</option>
+                                            <option value="15:00">03:00 PM</option>
+                                            <option value="16:00">04:00 PM</option>
+                                            <option value="17:00">05:00 PM</option>
+                                            <option value="18:00">06:00 PM</option>
+                                            <option value="19:00">07:00 PM</option>
+                                            <option value="20:00">08:00 PM</option>
+                                        </select>
+                                    </label>
+                                    <!-- dropdown 2 -->
+                                    <label>To: 
+                                        <select>
+                                            <option value="05:00">05:00 AM</option>
+                                            <option value="06:00">06:00 AM</option>
+                                            <option value="07:00">07:00 AM</option>
+                                            <option value="08:00">08:00 AM</option>
+                                            <option value="09:00">09:00 AM</option>
+                                            <option value="10:00">10:00 AM</option>
+                                            <option value="11:00">11:00 AM</option>
+                                            <option value="12:00">12:00 PM</option>
+                                            <option value="13:00">01:00 PM</option>
+                                            <option value="14:00">02:00 PM</option>
+                                            <option value="15:00">03:00 PM</option>
+                                            <option value="16:00">04:00 PM</option>
+                                            <option value="17:00">05:00 PM</option>
+                                            <option value="18:00">06:00 PM</option>
+                                            <option value="19:00">07:00 PM</option>
+                                            <option value="20:00">08:00 PM</option>
+                                        </select>
+                                    </label>
+                                </div>
+                                <button type="submit" id="alerts-submit">Submit</button>
+                            </div>
+                        </div>    
+                    </div>
+                </div>
+
+                <!-- Accessibility -->
+                <div class="content accessibility" id="accessibility">
+                    <h2>Accessibility</h2>
+                    <p>This is the main content section of your dashboard layout.</p>
+                </div>
+
+                <!-- Language -->
+                <div class="content language" id="language">
+                    <h2>Language</h2>
+                    <p>This is the main content section of your dashboard layout.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Link to external JavaScript -->
+        <script src="script.js"></script>
+    </body>
+
+</html>

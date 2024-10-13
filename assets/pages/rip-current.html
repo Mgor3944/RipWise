@@ -11,10 +11,10 @@
         <meta name="keywords" content="RipWise, Beach Safety, Drowning, Unpatrolled Beaches, Australia, Navigation">
         <meta name="author" content="RipWise">
 
-        <title>RipWise</title>
+        <title>RipWise | Rip Currents</title>
 
         <!-- Link to external CSS -->
-        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="/style.css">
     </head>
     <body>
         <div class="dashboard">
@@ -23,14 +23,14 @@
                 <div class="container">
                     <div class="nav-box nav-box-top">
                         <div class="logo-box">
-                            <img class="menu" id="menu" src="./assets/icons/menu.svg" alt="Hamburger menu"/>
-                            <img class="logo" src="./assets/icons/RipWise.svg" alt="RipWise logo"/>
+                            <img class="menu" id="menu" src="/assets/icons/menu.svg" alt="Hamburger menu"/>
+                            <img class="logo" src="/assets/icons/RipWise.svg" alt="RipWise logo"/>
                             <span class="demo-badge">Demo</span>
                         </div>
                         <div class="nav-items">
                             <ul>
                                 <li>
-                                    <a href="/index.html" class="nav-link active" data-target="home">
+                                    <a href="/index.html" class="nav-link" data-target="home">
                                         <svg class="icon" viewBox="0 0 24 24" fill="#2c2f43" xmlns="http://www.w3.org/2000/svg">
                                             <path fill-rule="evenodd" clip-rule="evenodd" d="M19.4655 3.44914C19.2225 3.32014 18.9235 3.33414 18.6945 3.48914C18.6715 3.50314 16.4135 4.96914 12.1435 3.14114C7.04251 0.962137 4.46551 3.45114 4.35751 3.55814C4.21651 3.69914 4.13751 3.88914 4.13751 4.08914V21.0011C4.13751 21.4151 4.47351 21.7511 4.88751 21.7511C5.30151 21.7511 5.63751 21.4151 5.63751 21.0011V14.0481C6.26151 13.6201 8.17551 12.6771 11.5525 14.1211C16.5695 16.2681 19.4145 14.4161 19.5315 14.3351C19.7385 14.1951 19.8625 13.9631 19.8625 13.7131V4.11114C19.8625 3.83414 19.7095 3.58014 19.4655 3.44914Z" fill="#2c2f43"/>
                                         </svg>
@@ -38,7 +38,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="/assets/pages/rip-current.html" class="nav-link" data-target="rip-current">
+                                    <a href="/assets/pages/rip-current.html" class="nav-link active" data-target="rip-current">
                                         <svg class="icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M11.9263 13.2086C13.5265 13.2086 14.8243 11.8999 14.8243 10.2846C14.8243 8.66942 13.5265 7.35986 11.9263 7.35986C10.3256 7.35986 9.02783 8.66937 9.02783 10.2846C9.02783 11.8999 10.3255 13.2086 11.9263 13.2086Z" fill="#2C2F43"/>
                                             <path d="M18.273 3.21544C18.0198 2.94141 17.5943 2.92701 17.3231 3.18249C17.0516 3.43792 16.6833 4.70789 16.6859 4.71042C16.6884 4.71284 17.9691 4.42856 18.2403 4.17303C18.5119 3.9176 18.5262 3.48903 18.273 3.21544Z" fill="#2C2F43"/>
@@ -100,8 +100,8 @@
                             <div class="alert-content">
                                 <h3>Live Beach Alerts</h3>
                                 <p>We provide real-time beach safety alerts directly on your phone.</p>
-                                <a href="/assets/pages/get-alerts.html" class="nav-link alert-btn active" data-target="beach-alerts">
-                                    <span >Notify Me</span>
+                                <a href="/assets/pages/get-alerts.html" class="nav-link alert-btn" data-target="beach-alerts">
+                                    <span>Notify Me</span>
                                 </a>
                             </div>
                         </div>
@@ -110,14 +110,72 @@
             </div>
             
             <!-- Main Content - Home -->
-            <div class="main-content" id="home">
+            <div class="main-content" id="rip-current">
                 <div class="content">
-                    <h2>Safe Swim Zone</h2>
-                    <p>This is the main content section of your dashboard layout.</p>
+                    <div class="title-box">
+                        <h1>Rip Currents</h1>
+                    </div>
+                    <div class="info-box">
+                        <!-- Box Left -->
+                        <div class="rip-explain">
+                            <h2 class="rip-title">What Is A Rip?</h2>
+                            <div class="rip-details">
+                                <div class="rip-detail-item">
+                                    <img src="/assets/icons/flag.svg" alt="Rip Icon 1">
+                                    <p class="rip-explanation">A rip is a very strong and narrow current that flows out to the sea.</p>
+                                </div>
+                                <div class="rip-detail-item">
+                                    <img src="/assets/icons/flag.svg" alt="Rip Icon 2">
+                                    <p class="rip-explanation">It is usually has darker patches of water with no breaking waves.</p>
+                                </div>
+                                <div class="rip-detail-item">
+                                    <img src="/assets/icons/flag.svg" alt="Rip Icon 3">
+                                    <p class="rip-explanation">Rip currents can reach speeds faster than olympic swimmers</p>
+                                </div>
+                            </div>
+                            <div class="rip-img">
+                                <img src="/assets/images/rip_diagram.png" style="width:100%; margin: 0 auto; display: block;" alt="Rip Current Diagram">
+                            </div>
+                        </div>
+                        <!-- Box Right -->
+                        <div class="rip-escape">
+                            <h2 class="rip-title">How To Escape</h2>
+                            <div class="escape-info">
+                                <div class="escape-step">
+                                    <img src="/assets/images/rip-escape/step1.png" alt="Step 1">
+                                    <div class="escape-step-content">
+                                        <h3>Step 1</h3>
+                                        <p>Don't panic, stay calm!</p>
+                                    </div>
+                                </div>
+                                <div class="escape-step">
+                                    <img src="/assets/images/rip-escape/step2.png" alt="Step 2">
+                                    <div class="escape-step-content">
+                                        <h3>Step 2</h3>
+                                        <p>Swim across the rip</p>
+                                    </div>
+                                </div>
+                                <div class="escape-step">
+                                    <img src="/assets/images/rip-escape/step3.png" alt="Step 3">
+                                    <div class="escape-step-content">
+                                        <h3>Step 3</h3>
+                                        <p>Swim back to the sand</p>
+                                    </div>
+                                </div>
+                                <div class="escape-step" id="do-not-step">
+                                    <img src="/assets/images/rip-escape/step4.png" alt="do-not">
+                                    <div class="escape-step-content">
+                                        <u><h3>DO NOT</h3></u>
+                                        <p>Do not swim against the direction of the rip current</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
 
         <!-- Link to external JavaScript -->
-        <script src="script.js"></script>
+        <script src="/script.js"></script>
     </body>
