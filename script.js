@@ -146,11 +146,25 @@ document.addEventListener('DOMContentLoaded', function () {
     safeSwimMarker.bindPopup('<b>Safe Swim Zone</b><br>Designated safe swimming area.').openPopup();
 
     // Create a polyline to show the path from the kiosk to the safe swim zone
+    // Create two polylines to show the path from the kiosk to the safe swim zone
     var latlngs = [
         [-33.696700, 151.310085], // Kiosk location
+        [-33.696940, 151.310350], // Intermediate point 1 to follow visible path
+        [-33.697200, 151.310600], // Intermediate point 2
+        [-33.698000, 151.310200], // Intermediate point 3
+        [-33.698800, 151.309800], // Intermediate point 4
         [-33.699537, 151.309504]  // Safe swim zone location
     ];
 
-    var polyline = L.polyline(latlngs, { color: 'blue', weight: 4, opacity: 0.7 }).addTo(map);
+    // Create a polyline with dashed styles and add it to the map
+    var polyline = L.polyline(latlngs, {
+        color: '#257BF4',
+        dashArray: '10, 10'
+    }).addTo(map);
+
     polyline.bindPopup('Path from Kiosk to Safe Swim Zone');
 });
+
+
+
+
