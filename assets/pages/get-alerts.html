@@ -11,10 +11,18 @@
         <meta name="keywords" content="RipWise, Beach Safety, Drowning, Unpatrolled Beaches, Australia, Navigation">
         <meta name="author" content="RipWise">
 
+        <!-- Additional META tags -->
+        <meta property="og:title" content="RipWise | Get Alerts" />
+        <meta property="og:description" content="Interactive beach safety system for locating safe swimming zones." />
+        <meta property="og:image" content="/assets/icons/RipWise.svg" />
+
         <title>RipWise | Get Alerts</title>
 
         <!-- Link to external CSS -->
         <link rel="stylesheet" href="/style.css">
+
+        <!-- QR Code Generator -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
     </head>
     <body>
         <div class="dashboard">
@@ -230,6 +238,7 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        <span class="time-error-message"></span> <!-- Error message container -->
                                     </div>                                                                       
                                 </div>
                                 <div class="alert-time">
@@ -274,7 +283,7 @@
                                                     </select>
                                                 </label>
                                             </div>
-                                            <span class="time-error-message" style="color: red; display: none;"></span> <!-- Error message container -->
+                                            <span class="time-error-message"></span> <!-- Error message container -->
                                         </div>                                  
                                     </div>
                                     <div class="selected-alerts">
@@ -293,10 +302,43 @@
                             </div>
                         </div>
                     </div>
+                    <div class="alerts-submitted-container">
+                        <div class="inner-wrap">
+                            <div class="left-side">
+                                <div class="heading">
+                                    <h1>Awesome! <br>Lets Active Your Alerts</h1>
+                                    <p>By scanning the QR code with your mobile phone and entering your unique code you will receive start receiving live beach safety alerts.</p>
+                                </div>
+                                <div class="line"></div>
+                                <div class="alerts">
+                                    <h3>Selected Alerts</h3>
+                                    <div class="displayAlerts">
+                                        <!-- Display selected alerts here -->
+                                    </div>
+                                </div>
+                                <div class="time">
+                                    <h3>Contact Until</h3>
+                                    <div class="displayTime">
+                                        <!-- Display contactable time here -->
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="right-side">
+                                <div class="wrapper">
+                                    <div class="QR-code"></div>
+                                    <div class="right-side-content">
+                                        <h3>Scan Code</h3>
+                                        <p>Please scan the code using your mobile phone camera. You’re selected alerts will automatically be added to the screen.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
 
         <!-- Link to external JavaScript -->
         <script src="/script.js"></script>
+        <script src="/assets/pages/scripts/alerts.js"></script>
     </body>
