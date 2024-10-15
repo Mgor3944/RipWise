@@ -34,6 +34,7 @@ body {
 .dummy-wrapper .wrapper-inside {
     display: flex;
     flex-direction: column;
+    text-align: center;
     gap: 25px;
     width: 100%;
     height: 100%;
