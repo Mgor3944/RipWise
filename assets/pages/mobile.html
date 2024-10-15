@@ -11,26 +11,43 @@
         <meta name="keywords" content="RipWise, Beach Safety, Drowning, Unpatrolled Beaches, Australia, Navigation">
         <meta name="author" content="RipWise">
 
-        <title>RipWise | Safe Swim Zone Directions</title>
+        <title>RipWise | Mobile | Safe Swim Zone Directions</title>
 
         <!-- Link to external CSS -->
         <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="/assets/pages/css/mobile.css"> 
 
         <!-- Leaflett Maps -->
         <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
         <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     </head>
-    <body>
-        <div class="mobile-container">
-            <div class="content" id="map"></div>
-            <div class="navbar"></div>
-            <div class="directions"></div>
-            <div class="alerts">
-                <h3>Alert 1</h3>
+    <body> 
+
+        <!-- Testing out user alerts retrieval -->
+        <div class="dummy-wrapper">
+            <div class="wrapper-inside">
+                <h2>Retrieving User's Alert Preferences:</h2>
+                <div class="userSelectedAlerts"></div>
+                <div class="userSelectedTime"></div>
             </div>
         </div>
 
+        <!-- 
+        Dummy Setup for mobile screen
+
+        <div class="mobile" id="mobile"> Outer Wrap
+            <div class="mobile-wrapper"> Outer Wrap
+                <div class="content" id="map"></div> Full screen nav maps
+                <div class="topbar"></div> Topbar (navigation)
+                <div class="directions"></div> Bottom directions
+            </div>
+        </div> 
+        
+        -->
+
+
         <!-- Link to external JavaScript -->
         <script src="script.js"></script>
+        <script src="/assets/pages/scripts/mobile.js"></script>
     </body>
 </html>

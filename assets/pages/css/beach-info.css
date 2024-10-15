@@ -1,3 +1,31 @@
+/* Root Colour Palette */
+:root {
+    --primary-blue: #257BF4;
+
+    --secondary-slate: #2c2f43;
+    --secondary-slate-70: rgba(44, 47, 67, 0.7);
+    --secondary-slate-10: rgba(44, 47, 67, 0.1);
+
+    --accent-orange: #F48925;
+    --accent-purple: #6D25F4;
+
+    --background-white: #FFFFFF;
+    --background-ghost: #F9F9FB;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', Arial, sans-serif;
+}
+
+body {
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+}
+
 /* Weather */
 #weather-container {
     background: var(--primary-blue);
