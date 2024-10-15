@@ -34,9 +34,10 @@ document.addEventListener('DOMContentLoaded', () => {
     if (selectedAlerts.length > 0) {
         alertsContainer.innerHTML = ''; // Clear any placeholder text
         selectedAlerts.forEach(alert => {
+            const formattedAlert = alert.replace(/-/g, ' '); // Replace hyphens with spaces for each alert
             const alertDiv = document.createElement('div');
             alertDiv.className = 'retrievedAlert';
-            alertDiv.textContent = alert;
+            alertDiv.textContent = formattedAlert;
             alertsContainer.appendChild(alertDiv);
         });
     } else {

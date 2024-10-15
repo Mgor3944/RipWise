@@ -151,7 +151,7 @@ submitButton.addEventListener('click', (event) => {
         alertDiv.textContent = alert.dataset.label;
         displayAlertsContainer.appendChild(alertDiv);
 
-        selectedAlertLabels.push(alert.dataset.label.toLowerCase().replace(/\s+/g, '-')); // Store select alerts
+        selectedAlertLabels.push(alert.dataset.label.replace(/\s+/g, '-')); // Store select alerts with hyphens instead of spaces
     });
 
     // Display the selected contactable time
