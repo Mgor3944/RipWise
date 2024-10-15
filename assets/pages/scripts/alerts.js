@@ -123,7 +123,7 @@ submitButton.addEventListener('click', (event) => {
     // Check if at least one alert is selected
     const selectedAlertsWrap = document.querySelector('.alerts-wrap');
     const selectedAlerts = selectedAlertsWrap.querySelectorAll('.chosenAlert');
-    const errorMessage = document.querySelector('.alert-error-message');
+    const alertErrorMessage = document.querySelector('.alert-error-message');
 
     if (selectedAlerts.length === 0) {
         alert('Please select at least one alert preference before submitting.');
