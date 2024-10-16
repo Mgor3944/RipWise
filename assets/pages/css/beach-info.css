@@ -92,3 +92,91 @@ body {
     color: black;
     margin-top: 10px;
 }
+
+.beach-conditions-container {
+    position: relative;
+    width: 85%;
+    padding: 20px;
+    /* background: #f0f0f0; */
+    transform: translate(-50%, -50%);
+    top: 40%;
+    left: 50%;
+    display: flex;
+    gap: 20px;
+}
+
+#weather-container {
+    flex: 2;
+    padding: 20px;
+    background: #e0e0e0;
+}
+
+.other-beach-info {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 10px;
+}
+
+#wind {
+    background-color: #add8e6;
+    display: flex;
+    border-radius: 15px;
+}
+
+#swell {
+    background-color: #90ee90;
+    display: flex;
+    border-radius: 15px;
+}
+
+#emergency {
+    background-color: #ffa500;
+    display: flex;
+}
+
+.beach-info-detail {
+    background-color: #ffcccb;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 10px 10px 10px 30px;
+    border-radius: 15px;
+}
+
+.beach-info-index-title {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+.beach-info-index-value {
+    display: flex;
+    align-items: center;
+    font-size: 2.5em;
+    margin: 10px 0;
+}
+.beach-info-max-today {
+    font-size: 1em;
+    color: #333;
+    margin-top: 10px;
+}
+.beach-info-detail img {
+    width: 40px;
+    height: 40px;
+    margin-left: 10px;
+}
+
+.beach-info-top-line {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.beach-info-floating-max{
+    background: orange;
+    font-size: 1em;
+    margin-left: 50px;
+    border-radius: 10px;
+    padding: 2px 15px;
+}

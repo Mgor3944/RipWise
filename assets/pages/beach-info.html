@@ -112,16 +112,65 @@
             <!-- Main Content - Beach -->
             <div class="main-content" id="beach-info">
                 <h2>Beach Information</h2>
-                <div id="weather-container">
-                    <h2>RipWise Weather Data</h2>
-                    <img id="weather-icon" alt="Weather Icon">
-                    <div id="temp-div"></div>
-                    <div id="weather-info"></div>
-                    <div id="hourly-forecast"></div>
+                <div class="beach-conditions-container">
+                    <div id="weather-container">
+                        <h2>Turimetta Beach</h2>
+                        <img id="weather-icon" alt="Weather Icon">
+                        <div id="temp-div"></div>
+                        <div id="weather-info"></div>
+                        <div id="hourly-forecast"></div>
+                    </div>
+                    <div class="other-beach-info">
+                        <div class="beach-info-detail" id="uv-index">
+                            <div class="beach-info-top-line">
+                                <div class="beach-info-index-title">UV Index</div>
+                                <div class="beach-info-floating-max">Max: 13</div>
+                            </div>
+                            <div class="beach-info-index-value">
+                                <div id='dynamic-uv'>10.5</div>
+                                <img src="../icons/alert.svg" alt="UV Icon">      
+                            </div>
+                            <div class="beach-info-max-today">Today's max: 15.2</div>
+                        </div>
+                        <div class="beach-info-detail" id="wind">
+                            <div class="beach-info-top-line">
+                                <div class="beach-info-index-title">Wind</div>
+                                <div class="beach-info-floating-max">Danger: 40km/h+</div>
+                            </div>
+                            <div class="beach-info-index-value">
+                                <div id="dynamic-wind">12km/h</div>
+                                <img src="../icons/alert.svg" alt="Wind Icon">      
+                            </div>
+                            <div class="beach-info-max-today">Today's max: 14km/h</div>
+                        </div>
+                        <div class="beach-info-detail" id="swell">
+                            <div class="beach-info-top-line">
+                                <div class="beach-info-index-title">Swell</div>
+                                <div class="beach-info-floating-max">Danger: 4ft+</div>
+                            </div>
+                            <div class="beach-info-index-value">
+                                2ft
+                                <img src="../icons/alert.svg" alt="Swell Icon">      
+                            </div>
+                            <div class="beach-info-max-today">Today's max: 3ft</div>
+                        </div>
+                        <div class="beach-info-detail" id="emergency">
+                            <div class="beach-info-top-line">
+                                <div class="beach-info-index-title">Emergency</div>
+                                <!-- <div class="beach-info-floating-max">Max 13</div> -->
+                            </div>
+                            <div class="beach-info-index-value">
+                                000
+                                <img src="../icons/alert.svg" alt="UV Icon">      
+                            </div>
+                            <div class="beach-info-max-today">Please call in case of any emergency</div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
 
         <!-- Link to external JavaScript -->
         <script src="../../script.js"></script>
+        <script src="../pages/scripts/beach-info.js"></script>
     </body>
