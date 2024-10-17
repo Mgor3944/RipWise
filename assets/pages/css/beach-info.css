@@ -28,14 +28,25 @@ body {
 
 /* Weather */
 #weather-container {
-    background: var(--primary-blue);
+    background: white !important;
     max-width: 400px;
     padding: 20px;
     border-radius: 15px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid black !important;
     text-align: center;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+}
+
+#beach-info {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--background-ghost);
+    color: var(--secondary-slate);
+    padding: 25px 35px;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
 }
 
 #city {
@@ -120,30 +131,32 @@ body {
 }
 
 #wind {
-    background-color: #add8e6;
+    /* background-color: #add8e6; */
     display: flex;
     border-radius: 15px;
 }
 
 #swell {
-    background-color: #90ee90;
+    /* background-color: #90ee90; */
     display: flex;
     border-radius: 15px;
 }
 
 #emergency {
-    background-color: #ffa500;
+    /* background-color: #ffa500; */
     display: flex;
 }
 
 .beach-info-detail {
-    background-color: #ffcccb;
+    background-color: #ffffff;
+    border: 1px solid black;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
     padding: 10px 10px 10px 30px;
     border-radius: 15px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
 }
 
 .beach-info-index-title {
