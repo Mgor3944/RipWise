@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Add a marker for the safe swim zone location
     var safeSwimMarker = L.marker([-33.699537, 151.309504]).addTo(map);
-    safeSwimMarker.bindPopup('Safe Swim Zone<br><b>Turimetta Beach/b>').openPopup();
+    safeSwimMarker.bindPopup('Safe Swim Zone<br><b>Turimetta Beach</b>').openPopup();
 
     // Create a polyline to show the path from the kiosk to the safe swim zone
     var latlngs = [
