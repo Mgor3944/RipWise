@@ -318,16 +318,17 @@ body {
     gap: 5px;
 }
 
-.live-feed-popup .live-feed-wrapper .close-popup {
+.live-feed-popup .live-feed-wrapper .expand-popup {
     display: flex;
     flex-direction: row;
     justify-content: right;
     text-align: right;
     width: 100%;
+    cursor: pointer;
     /* border: 1px solid red; */
 }
 
-.live-feed-popup .live-feed-wrapper .close-popup .close {
+.live-feed-popup .live-feed-wrapper .expand-popup .expand-icon {
     height: 30px;
 }
 
