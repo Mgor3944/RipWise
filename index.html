@@ -19,6 +19,9 @@
         <!-- Leaflett Maps -->
         <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
         <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+        <!-- QR Code Generator -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
     </head>
     <body>
         <div class="dashboard">
@@ -116,7 +119,7 @@
             <!-- Main Content - Home -->
             <div class="main-content" id="home">
                 <div class="wrapper">
-                    <div class="map-container" id="map"></div> 
+                    <div class="map-container" id="map"></div>
                     <div class="live-feed-container" id="live-feed" style="display: none"></div> 
 
                     <!-- Popups -->
@@ -125,15 +128,31 @@
                             <div class="close-popup">
                                 <img class="close" src="./assets/icons/close.svg" alt="Close Icon"/>
                             </div>
-                            <div class="p-content">
+
+                            <!-- Safe Swim Zone Live Feed -->
+                            <div class="p-content" id="live-camera">
                                 <div class="p-content-text">
                                     <h2>Safe Swim Zone <br>less than 200m</h2>
                                     <p>We provide a live camera of the safe swim zone. You can access directions below.</p>
                                 </div>
                                 <div class="camera-wrapper">
                                     <img class="beach-img" src="./assets/images/live-feed.png" alt="Beach IMG"/>
+                                    <div class="live-signal">
+                                        <div class="live-circle"></div> <!-- Flashing Circle -->
+                                        <h4>Live</h4>
+                                    </div>
+                                    <div class="green-rectangle"></div> <!-- Safe Swim Zone -->
                                 </div>
-                                <button type="submit" class="get-directions" id="get-directions">Get Directions</button>  
+                                <button type="submit" class="get-directions-btn" id="get-directions">Get Directions</button>  
+                            </div>
+
+                            <!-- Scanning the QR Code -->
+                            <div class="p-content" id="scan-QR-code">
+                                <div class="p-content-text">
+                                    <h2>Scan QR Code</h2>
+                                    <p>Use your phone to scan the code below. You will be able to access our live camera feed and real-time navigation to access to the safe swim zone.</p>
+                                </div>
+                                <div class="QR-code"></div>
                             </div>
                         </div>
                     </div>

@@ -17,13 +17,12 @@
         <link rel="stylesheet" href="/assets/pages/css/mobile.css"> 
 
         <!-- Leaflett Maps -->
-        <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-        <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD8mD4JCv1vjUO7Xp671B1f6TKrUmAodbw&callback=initMap" async defer></script>
     </head>
     <body> 
 
         <!-- Dummy Test - Retriving User Alert Data -->
-        <div class="dummy-wrapper">
+        <!-- <div class="dummy-wrapper">
             <div class="wrapper-inside">
                 <img class="logo" src="../icons/RipWise.svg" alt="RipWise logo"/>
                 <h3>Retrieved Alerts:</h3>
@@ -31,20 +30,49 @@
                 <h3>Retrieved Contact Time:</h3>
                 <div class="userSelectedTime"></div>
             </div>
-        </div>
+        </div> -->
 
-        <!-- 
-        Draft layout for the actual mobile screen
 
-        <div class="mobile" id="mobile"> Outer Wrap
-            <div class="mobile-wrapper"> Outer Wrap
-                <div class="content" id="map"></div> Full screen nav maps
-                <div class="topbar"></div> Topbar (navigation)
-                <div class="directions"></div> Bottom directions
+        <div class="mobile" id="mobile"> 
+            <div class="mobile-wrapper">
+
+                <!-- Top Bar -->
+                <div class="topbar">
+                    <img class="ripwise-logo" src="../icons/RipWise.svg" alt="RipWise logo"/>
+                    <div class="right-items">
+                        <a href="#" class="mobile-icon alerts">
+                            <img class="alert-icon" src="../icons/alert.svg" alt="Alert Icon"/>
+                        </a>
+                        <a href="#" class="mobile-icon live-camera">
+                            <img class="live-camera-icon" src="../icons/live-camera.svg" alt="Live Camera Icon"/>
+                            <span>Live Camera </span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Map Container -->
+                <div id="map-mobile" class="directions"></div>
+
+                <!-- Gradient Overlay for Readability -->
+                <div class="map-gradient-overlay"></div>
+
+                <!-- Nav Details -->
+                <div class="nav-details">
+                    <div class="destination-info">
+                        <span class="destination-name">Safe Swim Zone</span>
+                        <span class="time-distance">10 min (510m)</span>
+                    </div>
+                    <div class="nav-btn">
+                        <button class="start-nav">
+                            <img class="send-icon" src="../icons/send.svg" alt="Send Icon"/>
+                            Start Navigation
+                        </button>
+                    </div>
+                </div>
             </div>
         </div> 
         
-        -->
+       
 
 
         <!-- Link to external JavaScript -->
