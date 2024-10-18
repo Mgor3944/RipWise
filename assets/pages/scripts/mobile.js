@@ -37,6 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const formattedAlert = alert.replace(/-/g, ' '); // Replace hyphens with spaces for each alert
             const alertDiv = document.createElement('div');
             alertDiv.className = 'retrievedAlert';
+            alertDiv.id = alert.toLowerCase().replace(/\s+/g, '-'); // tagging alert ID with name of selected alert
             alertDiv.textContent = formattedAlert;
             alertsContainer.appendChild(alertDiv);
         });
