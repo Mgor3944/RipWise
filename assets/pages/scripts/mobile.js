@@ -108,7 +108,7 @@ document.addEventListener('DOMContentLoaded', function () {
     startNavButton.addEventListener('click', function () {
         document.getElementById('nav-details').style.display = 'none';
         document.getElementById('directions-panel').style.display = 'block';
-        document.getElementById('compass-arrow').style.display = 'block';
+        document.getElementById('compass-arrow').style.display = 'none';
 
         // Add device orientation event listener
         window.addEventListener('deviceorientation', function (event) {
