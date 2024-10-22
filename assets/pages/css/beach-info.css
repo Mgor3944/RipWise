@@ -26,6 +26,17 @@ body {
     overflow: hidden;
 }
 
+#beach-info {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--background-white);
+    color: var(--secondary-slate);
+    padding: 25px 35px;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+}
+
 /* Weather */
 #weather-container {
     background: white !important;
@@ -36,17 +47,6 @@ body {
     border: 1px solid black !important;
     text-align: center;
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
-}
-
-#beach-info {
-    display: flex;
-    flex-direction: column;
-    background-color: var(--background-ghost);
-    color: var(--secondary-slate);
-    padding: 25px 35px;
-    width: 100%;
-    height: 100%;
-    border-radius: 20px;
 }
 
 #city {

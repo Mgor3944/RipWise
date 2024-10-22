@@ -16,8 +16,8 @@
         <link rel="stylesheet" href="../../style.css">
         <link rel="stylesheet" href="/assets/pages/css/mobile.css"> 
 
-        <!-- Leaflett Maps -->
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD8mD4JCv1vjUO7Xp671B1f6TKrUmAodbw&callback=initMap" async defer></script>
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css">
+        <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.css">
     </head>
     <body> 
 
@@ -51,7 +51,7 @@
                 </div>
 
                 <!-- Map Container -->
-                <div id="map-mobile" class="directions"></div>
+                <div id="map-mobile" class="map-mobile"></div>
 
                 <!-- Gradient Overlay for Readability -->
                 <div class="map-gradient-overlay"></div>
@@ -78,5 +78,10 @@
         <!-- Link to external JavaScript -->
         <!-- <script src="../../script.js"></script> -->
         <script src="/assets/pages/scripts/mobile.js"></script>
+
+        <!-- External Scrips for Routing -->
+        <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+        <script src="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.min.js"></script>
+        <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
     </body>
 </html>

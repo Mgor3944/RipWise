@@ -36,21 +36,23 @@ document.addEventListener('DOMContentLoaded', function () {
     L.control.layers(baseMaps).addTo(map);
 
     // Add a marker for the kiosk location
-    var kioskMarker = L.marker([-33.696700, 151.310085]).addTo(map);
+    var kioskMarker = L.marker([-33.699788, 151.308555]).addTo(map);
     kioskMarker.bindPopup('<b>RipWise Kiosk</b><br>This is where you are located.').openPopup();
 
     // Add a marker for the safe swim zone location
-    var safeSwimMarker = L.marker([-33.699537, 151.309504]).addTo(map);
+    var safeSwimMarker = L.marker([-33.698805, 151.310291]).addTo(map);
     safeSwimMarker.bindPopup('Safe Swim Zone<br><b>Turimetta Beach</b>').openPopup();
 
     // Create a polyline to show the path from the kiosk to the safe swim zone
     var latlngs = [
-        [-33.696700, 151.310085], // Kiosk location
-        [-33.696940, 151.310350],
-        [-33.697200, 151.310600],
-        [-33.698000, 151.310200],
-        [-33.698800, 151.309800],
-        [-33.699537, 151.309504]  // Safe swim zone location
+        [-33.699788, 151.308555], // ripwise kiosk
+        [-33.699797, 151.308613],
+        [-33.699725, 151.308837],
+        [-33.699607, 151.309043],
+        [-33.699540, 151.309267],
+        [-33.699361, 151.309415],
+        [-33.699124, 151.309690],
+        [-33.698805, 151.310291] // safe swim zone
     ];
 
     // Create a polyline with dashed styles and add it to the map

@@ -144,7 +144,7 @@ body {
     flex-direction: column;
     gap: 20px;
     position: absolute;
-    bottom: 5%;
+    bottom: 10%;
     left: 50%;
     transform: translateX(-50%);
     width: 80%;
@@ -205,4 +205,9 @@ body {
 
 .start-nav:hover {
     background-color: #259a31;
+}
+
+.ssz-box {
+    display: flex;
+    flex-direction: column;
 }

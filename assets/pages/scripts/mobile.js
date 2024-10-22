@@ -55,72 +55,47 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-// Setting
+document.addEventListener('DOMContentLoaded', function () {
+    // Initialize the map and set its view to the specified coordinates
+    var map = L.map('map-mobile', { zoomControl: false }).setView([-33.698838, 151.309927], 17);
 
-function initMap() {
-    const mapOptions = {
-        zoom: 17,
-        center: { lat: -33.698838, lng: 151.309927 }, // Turimetta Beach Coordinates
-        mapTypeControl: false,
-        streetViewControl: false,
-        fullscreenControl: false
-    };
-    const map = new google.maps.Map(document.getElementById("map-mobile"), mapOptions);
+    // Add OpenStreetMap tile layer to the map
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
 
-    // Marker locations
-    const kioskLocation = { lat: -33.696700, lng: 151.310085 };
-    const swimZoneLocation = { lat: -33.699537, lng: 151.309504 };
+    // Define custom points for the route
+    var latlngs = [
+        [-33.699788, 151.308555], // ripwise kiosk
+        [-33.699797, 151.308613],
+        [-33.699725, 151.308837],
+        [-33.699607, 151.309043],
+        [-33.699540, 151.309267],
+        [-33.699361, 151.309415],
+        [-33.699124, 151.309690],
+        [-33.698805, 151.310291] // safe swim zone
+    ];
 
-    const line1 = { lat: -33.696940, lng: 151.310350};
-    const line2 = { lat: -33.697200, lng: 151.310600};
-    const line3 = { lat: -33.698000, lng: 151.310200};
-    const line4 = { lat: -33.698800, lng: 151.309800};
+    // Create a polyline to show the customized route and add it to the map
+    var customPolyline = L.polyline(latlngs, {
+        color: '#257BF4',
+        weight: 5,
+        opacity: 0.8,
+        dashArray: '5, 10' // Optional: make the polyline dashed to indicate a suggested route
+    }).addTo(map);
 
-    // Add markers to the map
-    const kioskMarker = new google.maps.Marker({
-        position: kioskLocation,
-        map: map,
-        title: "RipWise Kiosk"
+    // Fit the map view to the polyline
+    map.fitBounds(customPolyline.getBounds(), {
+        padding: [50, 50]
     });
 
-    const swimZoneMarker = new google.maps.Marker({
-        position: swimZoneLocation,
-        map: map,
-        title: "Safe Swim Zone"
+    // Add markers for start and end points
+    var startMarker = L.marker(latlngs[0]).addTo(map).bindPopup('<div class="ssz-box">Location<b>RipWise Kiosk</b></div>');
+    var endMarker = L.marker(latlngs[latlngs.length - 1]).addTo(map).bindPopup('<div class="ssz-box">Destination<b>Safe Swim Zone</b></div>').openPopup();
+
+    // Add "Start Navigation" button functionality
+    const startNavButton = document.querySelector('.start-nav');
+    startNavButton.addEventListener('click', function () {
+        // do something when nav button is clicked
     });
-
-    // Draw a line between the two locations
-    const routePath = new google.maps.Polyline({
-        path: [kioskLocation, line1, line2, line3, line4, swimZoneLocation],
-        geodesic: true,
-        strokeColor: "#257BF4",
-        strokeOpacity: 1.0,
-        strokeWeight: 4
-    });
-
-    routePath.setMap(map);
-
-    // Show directions on button click
-    const directionsService = new google.maps.DirectionsService();
-    const directionsRenderer = new google.maps.DirectionsRenderer();
-    directionsRenderer.setMap(map);
-
-    document.querySelector(".start-nav").addEventListener("click", () => {
-        window.location.href = "https://www.alltrails.com/explore/map/norah-head-lighthouse-loop-9c779f5?u=m&sh=rmdpxv";
-    });
-
-    // document.querySelector(".start-nav").addEventListener("click", () => {
-    //     const request = {
-    //         origin: kioskLocation,
-    //         destination: swimZoneLocation,
-    //         travelMode: google.maps.TravelMode.WALKING
-    //     };
-    //     directionsService.route(request, (result, status) => {
-    //         if (status === google.maps.DirectionsStatus.OK) {
-    //             directionsRenderer.setDirections(result);
-    //         } else {
-    //             console.error("Directions request failed due to " + status);
-    //         }
-    //     });
-    // });
-}
+});
