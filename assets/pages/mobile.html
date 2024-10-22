@@ -50,17 +50,41 @@
                     </div>
                 </div>
 
-                <!-- Map Container -->
-                <div id="map-mobile" class="map-mobile"></div>
-
-                <!-- Gradient Overlay for Readability -->
+                <!-- Top Gradient Overlay for Readability -->
                 <div class="map-gradient-overlay"></div>
 
-                <!-- Nav Details -->
-                <div class="nav-details">
+                <!-- Original Map Container -->
+                <div id="map-mobile" class="map-mobile"></div>
+
+                <!-- Live Navigation Instructions -->
+                <div id="directions-panel" class="directions-panel" style="display: none;">
+                    <div class="panel-title">
+                        <h4>Directions</h4>
+                        <h2>Safe Swim Zone</h2>
+                    </div>
+                    <div class="panel-distances">
+                        <p>Total distance: 300 meters</p>
+                        <p>Estimated time: 5 minutes</p>
+                    </div>
+                    <div class="panel-directions">
+                        <ol>
+                            <li>1: Follow stairs to the sand</li>
+                            <li>2: Walk straight along the beach for 250m</li>
+                            <li>3: Your destination is on the right</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <!-- Original Navigation Details -->
+                <div class="nav-details" id="nav-details">
                     <div class="destination-info">
-                        <span class="destination-name">Safe Swim Zone</span>
-                        <span class="time-distance">10 min (510m)</span>
+                        <div class="nav-left-side">
+                            <span class="destination-name">Safe Swim Zone</span>
+                            <span class="time-distance">10 min (510m)</span>
+                        </div>
+                        <div class="nav-right-side">
+                            <img class="close-nav-icon" src="../icons/close.svg" alt="Send Icon"/>
+                        </div>
                     </div>
                     <div class="nav-btn">
                         <button class="start-nav">

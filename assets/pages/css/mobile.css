@@ -51,7 +51,7 @@ body {
     display: flex;
     width: 100%;
     height: 100vh;
-    padding: 5px;
+    /* padding: 5px; */
     background-color: #fff;
     overflow: hidden;
 }
@@ -138,11 +138,20 @@ body {
     z-index: 0;
 }
 
-/* Navigation Box (Bottom) */
+#map-directions {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    border-radius: 5px;
+    z-index: 0;
+}
+
+/* Navigation Original Box (Bottom) */
+
 .nav-details {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 25px;
     position: absolute;
     bottom: 10%;
     left: 50%;
@@ -157,9 +166,24 @@ body {
 
 .destination-info {
     display: flex;
+    flex-direction: row;
+    gap: 10px;
+    margin-bottom: 10px;
+    /* border: 1px solid red; */
+}
+
+.destination-info .nav-left-side {
+    display: flex;
     flex-direction: column;
     gap: 7px;
-    margin-bottom: 10px;
+    width: 100%;
+    /* border: 1px solid red; */
+}
+
+.close-nav-icon {
+    padding: 10px;
+    border-radius: 100px;
+    background: var(--secondary-slate-10);
 }
 
 .destination-name {
@@ -207,7 +231,78 @@ body {
     background-color: #259a31;
 }
 
+
+/* Custom Design for Map Pin Popup */
+
 .ssz-box {
     display: flex;
     flex-direction: column;
+}
+
+/* Live Directions */
+
+.directions-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    overflow-y: auto;
+    position: absolute;
+    bottom: 0%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    height: 370px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 45px 45px 0px 0px;
+    padding: 40px 30px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+}
+
+.directions-panel .panel-title {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    gap: 3px;
+    margin-bottom: 15px;
+}
+
+.panel-title h4 {
+    font-weight: 400;
+    font-size: 18px;
+}
+
+.panel-title h2 {
+    font-weight: 600;
+    font-size: 22px;
+    color: #257BF4;
+}
+
+.directions-panel .panel-distances {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    gap: 5px;
+    margin-bottom: 25px;
+}
+
+.directions-panel .panel-directions {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.panel-directions ol {
+    list-style: none;
+}
+
+.panel-directions li {
+    margin-bottom: 10px;
+    background-color: var(--secondary-slate-10);
+    padding: 10px 10px;
+    border-radius: 5px;
+}
+
+#compass-arrow {
+    display: none;
 }

@@ -56,13 +56,13 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 document.addEventListener('DOMContentLoaded', function () {
-    // Initialize the map and set its view to the specified coordinates
-    var map = L.map('map-mobile', { zoomControl: false }).setView([-33.698838, 151.309927], 17);
+    // Initialize the original map (map-mobile) and set its view
+    var mapMobile = L.map('map-mobile', { zoomControl: false }).setView([-33.698838, 151.309927], 16);
 
-    // Add OpenStreetMap tile layer to the map
+    // Add OpenStreetMap tile layer to the map-mobile
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-    }).addTo(map);
+    }).addTo(mapMobile);
 
     // Define custom points for the route
     var latlngs = [
@@ -76,26 +76,53 @@ document.addEventListener('DOMContentLoaded', function () {
         [-33.698805, 151.310291] // safe swim zone
     ];
 
-    // Create a polyline to show the customized route and add it to the map
+    // Create a polyline to show the customized route and add it to the map-mobile
     var customPolyline = L.polyline(latlngs, {
         color: '#257BF4',
         weight: 5,
         opacity: 0.8,
         dashArray: '5, 10' // Optional: make the polyline dashed to indicate a suggested route
-    }).addTo(map);
+    }).addTo(mapMobile);
 
     // Fit the map view to the polyline
-    map.fitBounds(customPolyline.getBounds(), {
-        padding: [50, 50]
+    mapMobile.fitBounds(customPolyline.getBounds(), {
+        padding: [60, 60]
     });
 
     // Add markers for start and end points
-    var startMarker = L.marker(latlngs[0]).addTo(map).bindPopup('<div class="ssz-box">Location<b>RipWise Kiosk</b></div>');
-    var endMarker = L.marker(latlngs[latlngs.length - 1]).addTo(map).bindPopup('<div class="ssz-box">Destination<b>Safe Swim Zone</b></div>').openPopup();
+    var startMarker = L.marker(latlngs[0]).addTo(mapMobile).bindPopup('<div class="ssz-box">Location<b>RipWise Kiosk</b></div>');
+    var endMarker = L.marker(latlngs[latlngs.length - 1]).addTo(mapMobile).bindPopup('<div class="ssz-box">Destination<b>Safe Swim Zone</b></div>').openPopup();
+
+    // Add a custom icon for the compass arrow
+    var compassIcon = L.divIcon({
+        html: `<img id="compass-arrow" src="../../assets/icons/nav-arrow.svg" style="width: 40px; height: 40px; transform: rotate(0deg);">`,
+        iconSize: [50, 50],
+        className: 'compass-icon' // Custom class for additional styling if needed
+    });
+
+    // Add a marker at the specific coordinates with the compass arrow icon
+    var compassMarker = L.marker([-33.699788, 151.308555], { icon: compassIcon }).addTo(mapMobile);
 
     // Add "Start Navigation" button functionality
     const startNavButton = document.querySelector('.start-nav');
     startNavButton.addEventListener('click', function () {
-        // do something when nav button is clicked
+        document.getElementById('nav-details').style.display = 'none';
+        document.getElementById('directions-panel').style.display = 'block';
+        document.getElementById('compass-arrow').style.display = 'block';
+
+        // Add device orientation event listener
+        window.addEventListener('deviceorientation', function (event) {
+            const compassArrow = document.getElementById('compass-arrow');
+            if (event.alpha !== null) {
+                // The alpha value represents the rotation around the z-axis (in degrees)
+                let rotation = event.alpha;
+
+                // Adjust the rotation of the arrow
+                compassArrow.style.transform = `rotate(${rotation}deg)`;
+            }
+        });
     });
 });
+
+
+
