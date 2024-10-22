@@ -124,5 +124,26 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
+document.addEventListener('DOMContentLoaded', function () {
+    // Get the live camera link and the video container
+    const liveCameraLink = document.getElementById('live-camera-link');
+    const liveFeedContainer = document.getElementById('ripwise-live-feed');
+
+    // Add event listener for the live camera link
+    liveCameraLink.addEventListener('click', function (e) {
+        e.preventDefault(); // Prevent default anchor behavior (if needed)
+
+        // Toggle active class on the live camera link
+        liveCameraLink.classList.toggle('active');
+
+        // Display the live feed container (toggle visibility)
+        if (liveFeedContainer.style.display === 'none' || liveFeedContainer.style.display === '') {
+            liveFeedContainer.style.display = 'flex';
+        } else {
+            liveFeedContainer.style.display = 'none';
+        }
+    });
+});
+
 
 

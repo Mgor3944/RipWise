@@ -112,6 +112,17 @@ body {
     font-weight: 500;
 }
 
+/* When Live Feed Is Active */
+.mobile-icon.live-camera.active { 
+    background: rgba(44, 47, 67, 0.2);
+    color: #007bff;
+    border: 1px solid var(--primary-blue);
+}
+
+.mobile-icon.live-camera.active path {
+    fill: var(--primary-blue);
+}
+
 .mobile-icon img {
     height: 24px;
 }
@@ -153,7 +164,7 @@ body {
     flex-direction: column;
     gap: 25px;
     position: absolute;
-    bottom: 10%;
+    bottom: 5%;
     left: 50%;
     transform: translateX(-50%);
     width: 80%;
@@ -305,4 +316,70 @@ body {
 
 #compass-arrow {
     display: none;
+}
+
+.ripwise-live-feed {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    height: 100px;
+    position: absolute;
+    left: 50%;
+    top: 15%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    border-radius: 14px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.ripwise-live-feed .beach-vid {
+    object-fit: cover;
+    border: 4px solid var(--secondary-slate-10);
+    border-radius: 14px;
+}
+
+.ripwise-live-feed .safe-swim-zone-rectangle {
+    position: absolute;
+    top: 90%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 55%;
+    height: 65%;
+    background-color: rgba(14, 219, 35, 0.20);
+    border: 1.5px solid #0EDB23;
+    border-radius: 12px;
+}
+
+.live-signal-new {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 7px;
+    border-radius: 5px;
+}
+
+.live-signal-new h4 {
+    color: var(--primary-blue);
+    margin: 0;
+    font-size: 14px;
+}
+
+.ripwise-live-feed .live-circle-new {
+    width: 12px;
+    height: 12px;
+    background-color: var(--primary-blue);
+    border-radius: 50%;
+    animation: flash 1.5s infinite alternate;
+}
+
+@keyframes flash {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0.2;
+    }
 }
