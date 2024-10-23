@@ -164,7 +164,7 @@ body {
     flex-direction: column;
     gap: 25px;
     position: absolute;
-    bottom: 5%;
+    bottom: 15%;
     left: 50%;
     transform: translateX(-50%);
     width: 80%;

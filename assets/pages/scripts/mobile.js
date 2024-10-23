@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 document.addEventListener('DOMContentLoaded', function () {
     // Initialize the original map (map-mobile) and set its view
-    var mapMobile = L.map('map-mobile', { zoomControl: false }).setView([-33.698838, 151.309927], 16);
+    var mapMobile = L.map('map-mobile', { zoomControl: false }).setView([-33.698838, 151.309927], 15);
 
     // Add OpenStreetMap tile layer to the map-mobile
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
