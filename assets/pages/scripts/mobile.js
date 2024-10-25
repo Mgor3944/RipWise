@@ -71,18 +71,27 @@ document.addEventListener('DOMContentLoaded', () => {
     const alertSummaryMessage = document.querySelector(".alert-summary-message");
     const alertIconBox = document.getElementById("alert-icon-box");
 
-    // Show popup and overlay when alerts icon is clicked
-    alertsIcon.addEventListener("click", function(event) {
-        event.preventDefault();
+    // Function to show popup
+    function showAlertsPopup() {
         alertOverlay.style.display = "block";
         alertsPopup.style.display = "block"; 
-
         alertIconBox.classList.toggle('active');
 
         const alertsCount = selectedAlerts.length;
         const contactUntil = contactTime.to ? contactTime.to : "an unspecified time";
         alertSummaryMessage.innerHTML = `You have signed up to receive  <strong>${alertsCount} alert(s)</strong> until <strong>${contactUntil}</strong> today via the RipWise kiosk.`;
+    }
+
+    // Show popup and overlay when alerts icon is clicked
+    alertsIcon.addEventListener("click", function(event) {
+        event.preventDefault();
+        showAlertsPopup();
     });
+
+    // Automatically show alerts popup if alerts or contact time parameters are present in the URL
+    if (alertsParam || contactTimeParam) {
+        showAlertsPopup();
+    }
 
     // Close popup and overlay when close button is clicked
     closePopupBtn.addEventListener("click", function() {
@@ -98,6 +107,7 @@ document.addEventListener('DOMContentLoaded', () => {
         alertIconBox.classList.remove('active');
     });
 });
+
 
 //////////////////////////////
 //////////////////////////////
