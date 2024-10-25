@@ -106,29 +106,40 @@ body {
     border-radius: 100px;
 }
 
+.mobile-icon path {
+    fill: var(--secondary-slate);
+}
+
 .alerts {
     padding: 10px;
 }
 
-.live-camera {
+
+.alerts.active {
+    background: rgba(44, 47, 67, 0.2);
+    color: #257BF4;
+    border: 1px solid var(--primary-blue);
+}
+
+.alerts.active path {
+    fill: var(--primary-blue);
+}
+
+.live-camera-link {
     padding: 8px 15px;
     gap: 10px;
     font-weight: 500;
 }
 
 /* When Live Feed Is Active */
-.mobile-icon.live-camera.active { 
+.mobile-icon.live-camera-link.active { 
     background: rgba(44, 47, 67, 0.2);
-    color: #007bff;
+    color: #257BF4;
     border: 1px solid var(--primary-blue);
 }
 
-.mobile-icon.live-camera.active path {
+.mobile-icon.live-camera-link.active path {
     fill: var(--primary-blue);
-}
-
-.mobile-icon img {
-    height: 24px;
 }
 
 /* Gradient Overlay for Readability */
@@ -144,7 +155,6 @@ body {
 }
 
 /* Google Maps */
-
 #map-mobile {
     width: 100%;
     height: 100%;
@@ -167,17 +177,22 @@ body {
     display: flex;
     flex-direction: column;
     gap: 25px;
-    position: absolute;
-    bottom: 15%;
+
+    position: fixed;
+    bottom: 0;
     left: 50%;
     transform: translateX(-50%);
+
     width: 80%;
+    padding-bottom: env(safe-area-inset-bottom); /* Adjusts for the Safari tab bar */
+    margin-bottom: 5%;
+
     background: rgba(255, 255, 255, 0.95);
     border-radius: 10px;
     padding: 25px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    z-index: 1;
-}
+    z-index: 1; 
+  }
 
 .destination-info {
     display: flex;
@@ -256,33 +271,18 @@ body {
 
 /* Live Directions */
 
-/* .directions-panel {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    overflow-y: auto;
-    position: absolute;
-    bottom: 0%;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100%;
-    height: 370px;
-    background: rgba(255, 255, 255, 0.95);
-    border-radius: 45px 45px 0px 0px;
-    padding: 40px 30px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    z-index: 1;
-} */
-
 .directions-panel {
     display: flex;
     flex-direction: column;
     gap: 20px;
 
+    overflow: scroll;
+
     position: fixed;
     bottom: 0;
     left: 0;
     width: 100%;
+    height: 275px;
     padding-bottom: env(safe-area-inset-bottom); /* Adjusts for the Safari tab bar */
 
     background: rgba(255, 255, 255, 0.95);
@@ -323,6 +323,7 @@ body {
     display: flex;
     flex-direction: column;
     text-align: left;
+    padding-bottom: 20px;
 }
 
 .panel-directions ol {
@@ -403,5 +404,94 @@ body {
     }
     100% {
         opacity: 0.2;
+    }
+}
+
+/* /////////////////// */
+/* /////////////////// */
+/* Alert Popup Styline */
+/* /////////////////// */
+/* /////////////////// */
+
+.alert-popup-overlay {
+    display: flex; /* Initially hidden */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); 
+    z-index: 2;
+}
+  
+.alerts-popup {
+    display: block; /* Initially hidden */
+
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    background-color: var(--background-white);
+    padding: 30px 40px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 80%;
+    max-width: 400px;
+
+    text-align: center;
+    z-index: 3; 
+}
+
+.popup-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.userSelectedAlerts {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5px;
+}
+
+.userSelectedAlerts .retrievedAlert {
+    padding: 10px 15px;
+    background-color: rgb(37, 123, 244, 0.2);
+    color: var(--secondary-slate);
+}
+  
+.close-alert-popup {
+    padding: 15px;
+    background-color: var(--secondary-slate);
+    color: var(--background-white);
+    border: none;
+    border-radius: 5px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.close-alert-popup:hover {
+    background-color: var(--primary-blue);
+}
+  
+
+
+@media only screen and (max-width: 380px) {
+
+    .topbar .right-items {
+        gap: 10px;
+    }
+
+    .topbar .right-items .live-camera-link {
+        padding: 10px;
+    }
+
+    .topbar .right-items .live-camera-link span {
+        display: none;
+        transition: all 0.3s ease;
     }
 }

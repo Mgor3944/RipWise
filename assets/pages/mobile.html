@@ -40,20 +40,22 @@
                 <div class="topbar">
                     <img class="ripwise-logo" src="../icons/RipWise.svg" alt="RipWise logo"/>
                     <div class="right-items">
-                        <a href="#" class="mobile-icon alerts">
-                            <img class="alert-icon" src="../icons/alert.svg" alt="Alert Icon"/>
+                        <a href="#" id="alert-icon-box" class="mobile-icon alerts">
+                            <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M10.4632 19.7279C10.9631 19.6222 14.0093 19.6222 14.5092 19.7279C14.9366 19.8266 15.3987 20.0573 15.3987 20.5608C15.3738 21.0402 15.0926 21.4653 14.704 21.7352C14.2001 22.128 13.6088 22.3767 12.9906 22.4664C12.6487 22.5107 12.3128 22.5117 11.9828 22.4664C11.3636 22.3767 10.7723 22.128 10.2694 21.7342C9.87978 21.4653 9.59852 21.0402 9.57367 20.5608C9.57367 20.0573 10.0358 19.8266 10.4632 19.7279ZM12.5452 2.5C14.6254 2.5 16.7502 3.48702 18.0125 5.12466C18.8314 6.17916 19.2071 7.23265 19.2071 8.8703V9.29633C19.2071 10.5523 19.539 11.2925 20.2695 12.1456C20.8231 12.7741 21 13.5808 21 14.456C21 15.3302 20.7128 16.1601 20.1373 16.8339C19.384 17.6417 18.3215 18.1573 17.2372 18.247C15.6659 18.3809 14.0937 18.4937 12.5005 18.4937C10.9063 18.4937 9.33505 18.4263 7.76375 18.247C6.67846 18.1573 5.61602 17.6417 4.86367 16.8339C4.28822 16.1601 4 15.3302 4 14.456C4 13.5808 4.1779 12.7741 4.73049 12.1456C5.48384 11.2925 5.79392 10.5523 5.79392 9.29633V8.8703C5.79392 7.18834 6.21333 6.08852 7.077 5.01186C8.36106 3.4417 10.4194 2.5 12.4558 2.5H12.5452Z" fill="#2C2F43"/>
+                            </svg>
                         </a>
-                        <a href="#" class="mobile-icon live-camera" id="live-camera-link">
+                        <a href="#" id="live-camera-link" class="mobile-icon live-camera-link">
                             <svg class="live-camera-icon" width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd" clip-rule="evenodd" d="M10.1888 3.75H14.3848C14.7988 3.75 15.1348 3.414 15.1348 3C15.1348 2.586 14.7988 2.25 14.3848 2.25H10.1888C9.77484 2.25 9.43884 2.586 9.43884 3C9.43884 3.414 9.77484 3.75 10.1888 3.75Z" fill="black"/>
                                 <path fill-rule="evenodd" clip-rule="evenodd" d="M12.828 10.3548C12.268 10.3548 11.828 9.91481 11.828 9.3548C11.828 8.8048 12.268 8.3548 12.828 8.3548C13.378 8.3548 13.828 8.8048 13.828 9.3548C13.828 9.91481 13.378 10.3548 12.828 10.3548ZM21.633 7.8828C21.358 7.5448 20.968 7.3368 20.536 7.2958C20.105 7.25381 19.684 7.3858 19.354 7.6618L17.7132 9.00094C17.5179 9.16038 17.2182 9.02177 17.1864 8.77162C16.929 6.74546 15.4686 5.4248 13.388 5.4248H7.49797C5.20797 5.4248 3.66797 7.0348 3.66797 9.4248V13.1748C3.66797 15.5748 5.20797 17.1848 7.49797 17.1848H9.98997L7.53697 20.5578C7.29297 20.8928 7.36697 21.3628 7.70197 21.6058C7.83497 21.7028 7.98897 21.7498 8.14297 21.7498C8.37397 21.7498 8.60297 21.6418 8.74897 21.4408L11.278 17.9638L13.747 21.3608C13.99 21.6948 14.458 21.7688 14.794 21.5258C15.129 21.2828 15.203 20.8138 14.959 20.4778L12.566 17.1848H13.388C15.4521 17.1848 16.921 15.8701 17.1854 13.8497C17.2181 13.5998 17.5178 13.4621 17.7127 13.6217L19.335 14.9498C19.626 15.1978 19.982 15.3238 20.387 15.3188C20.808 15.3188 21.204 15.1568 21.505 14.8618C21.816 14.5558 21.988 14.1478 21.988 13.7098L21.999 8.9108C22 8.5368 21.87 8.1708 21.633 7.8828Z" fill="black"/>
                             </svg>
-                            <span>Live Camera </span>
+                            <span>Live Camera</span>
                         </a>
                     </div>
                 </div>
 
-                <!-- RipWise Live Feed -->
+                <!-- RipWise Live Camera Feed -->
                 <div id="ripwise-live-feed" class="ripwise-live-feed" style="display: none">
                     <video class="beach-vid" autoplay loop muted>
                         <source src="../../assets/trimmed_compressed.mov" type="video/mp4">
@@ -62,7 +64,7 @@
                         <div class="live-circle-new"></div> <!-- Flashing Circle -->
                         <h4>Live</h4>
                     </div>
-                    <div class="safe-swim-zone-rectangle"></div> <!-- Safe Swim Zone -->
+                    <div class="safe-swim-zone-rectangle"></div>
                 </div>
 
                 <!-- Top Gradient Overlay for Readability -->
@@ -71,7 +73,7 @@
                 <!-- Original Map Container -->
                 <div id="map-mobile" class="map-mobile"></div>
 
-                <!-- Live Navigation Instructions -->
+                <!-- Step by Step Nav Instructions -->
                 <div id="directions-panel" class="directions-panel" style="display: none;">
                     <div class="panel-title">
                         <h4>Directions</h4>
@@ -90,7 +92,7 @@
                     </div>
                 </div>
 
-                <!-- Original Navigation Details -->
+                <!-- Nav Overall Details -->
                 <div class="nav-details" id="nav-details">
                     <div class="destination-info">
                         <div class="nav-left-side">
@@ -108,11 +110,22 @@
                         </button>
                     </div>
                 </div>
+
+                <!-- Overlay for dimmed background -->
+                <div id="alert-popup-overlay" class="alert-popup-overlay"></div>
+
+                <!-- Popup Alert Modal -->
+                <div id="alerts-popup" class="alerts-popup">
+                    <div class="popup-content">
+                        <h2>Your Alerts</h2>
+                        <p class="alert-summary-message">You have signed up to receive 3 alerts until 5pm today via the RipWise app.</p>
+                        <div class="userSelectedAlerts"></div> <!-- Selected Alerts -->
+                        <div class="userSelectedTime"></div> <!-- Contactable Time -->
+                        <button id="close-alert-popup" class="close-alert-popup">Close</button>
+                    </div>
+                </div>
             </div>
         </div> 
-        
-       
-
 
         <!-- Link to external JavaScript -->
         <!-- <script src="../../script.js"></script> -->

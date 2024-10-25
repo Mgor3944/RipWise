@@ -1,6 +1,10 @@
-// Wait for the DOM content to be fully loaded
-document.addEventListener('DOMContentLoaded', () => {
+//////////////////////////////
+//////////////////////////////
+// Retrieve Selected Alerts //
+//////////////////////////////
+//////////////////////////////
 
+document.addEventListener('DOMContentLoaded', () => {
     // Extract the alert preferences from the URL
     const urlParams = new URLSearchParams(window.location.search);
     
@@ -53,7 +57,53 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
         contactTimeContainer.textContent = 'No contact time specified.';
     }
+
+    ///////////////////////////////
+    ///////////////////////////////
+    /// Display Selected Alerts ///
+    ///////////////////////////////
+    ///////////////////////////////
+
+    const alertsIcon = document.querySelector(".alerts");
+    const alertOverlay = document.getElementById("alert-popup-overlay");
+    const alertsPopup = document.getElementById("alerts-popup");
+    const closePopupBtn = document.getElementById("close-alert-popup");
+    const alertSummaryMessage = document.querySelector(".alert-summary-message");
+    const alertIconBox = document.getElementById("alert-icon-box");
+
+    // Show popup and overlay when alerts icon is clicked
+    alertsIcon.addEventListener("click", function(event) {
+        event.preventDefault();
+        alertOverlay.style.display = "block";
+        alertsPopup.style.display = "block"; 
+
+        alertIconBox.classList.toggle('active');
+
+        const alertsCount = selectedAlerts.length;
+        const contactUntil = contactTime.to ? contactTime.to : "an unspecified time";
+        alertSummaryMessage.innerHTML = `You have signed up to receive  <strong>${alertsCount} alert(s)</strong> until <strong>${contactUntil}</strong> today via the RipWise kiosk.`;
+    });
+
+    // Close popup and overlay when close button is clicked
+    closePopupBtn.addEventListener("click", function() {
+        alertOverlay.style.display = "none";
+        alertsPopup.style.display = "none";
+        alertIconBox.classList.remove('active');
+    });
+
+    // Close popup and overlay when clicking outside the popup (on overlay)
+    alertOverlay.addEventListener("click", function() {
+        alertOverlay.style.display = "none";
+        alertsPopup.style.display = "none";
+        alertIconBox.classList.remove('active');
+    });
 });
+
+//////////////////////////////
+//////////////////////////////
+/// Navigation Map Display ///
+//////////////////////////////
+//////////////////////////////
 
 document.addEventListener('DOMContentLoaded', function () {
     // Initialize the original map (map-mobile) and set its view
