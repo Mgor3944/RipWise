@@ -256,7 +256,7 @@ body {
 
 /* Live Directions */
 
-.directions-panel {
+/* .directions-panel {
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -272,7 +272,25 @@ body {
     padding: 40px 30px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
     z-index: 1;
-}
+} */
+
+.directions-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding-bottom: env(safe-area-inset-bottom); /* Adjusts for the Safari tab bar */
+
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 45px 45px 0px 0px;
+    padding: 40px 30px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1; 
+  }
 
 .directions-panel .panel-title {
     display: flex;
