@@ -1,0 +1,317 @@
+/* Import Poppins Font Family - Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/* Root Colour Palette */
+:root {
+    --primary-blue: #257BF4;
+
+    --secondary-slate: #2c2f43;
+    --secondary-slate-70: rgba(44, 47, 67, 0.7);
+    --secondary-slate-10: rgba(44, 47, 67, 0.1);
+
+    --accent-orange: #F48925;
+    --accent-purple: #6D25F4;
+
+    --background-white: #FFFFFF;
+    --background-ghost: #F9F9FB;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', Arial, sans-serif;
+    font-style: normal;
+}
+
+body {
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+    background-color: #fff;
+}
+
+#rip-current .content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%; 
+    justify-content: flex-start; 
+    background-color: var(--background-ghost);
+}
+
+/* Title Box */
+#rip-current .content .title-box {
+    display: flex;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+#rip-current .content .title-box h1 {
+    font-size: 28px;
+}
+
+/* Info Box */
+#rip-current .content .info-box {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end; 
+    justify-content: space-between; 
+    width: 100%;
+    height: 100%;
+}
+
+/* Rip Current - Explain Box */
+.rip-explain {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    background-color: var(--background-white);
+    color: var(--secondary-slate);
+    width: 60%;
+    height: auto;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+}
+
+/* Rip Explain Title */
+.rip-explain .rip-title {
+    width: 100%;
+}
+/* Rip Details */
+.rip-explain .rip-details {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 40px;
+    width: 100%;
+}
+
+.rip-explain .rip-details .rip-detail-item img {
+    height: 30px;
+    margin-bottom: 10px;
+}
+
+.rip-explain .rip-vid {
+    width: 100%;
+    border-radius: 10px;
+    /* border: 1px red solid; */
+}
+
+.rip-explain .rip-vid video {
+    border-radius: 10px;
+}
+
+/* Rip Current - Escape Box */
+#rip-current .content .info-box .rip-escape {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    background-color: var(--background-white);
+    color: var(--secondary-slate);
+    width: 37%;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+    /* border: 1px red solid; */
+}
+
+#rip-current .content .info-box .rip-escape .rip-title {
+    width: 100%;
+    /* border: 1px red solid; */
+}
+
+#rip-current .content .info-box .rip-escape .escape-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 20px;
+    width: 100%;
+    height: 70%;
+    /* border: 1px red solid; */
+}
+
+#rip-current .content .info-box .rip-escape .escape-info .escape-step {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 30px;
+    width: 100%;
+}
+
+#rip-current .content .info-box .rip-escape .escape-info .escape-step img {
+    height: 140px;
+}
+
+#do-not-step{
+    margin-top: 50px;
+}
+
+#rip-current .content .info-box .rip-escape .escape-info .escape-step .escape-step-content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+}
+
+#rip-current .content .info-box .rip-escape .escape-info .escape-step .escape-step-content h3 {
+    font-size: 28px;
+}
+
+#rip-current .content .info-box .rip-escape .escape-info .escape-step .escape-step-content p {
+    font-size: 16px;
+}
+
+.language-popup-overlay {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); /* Dark transparent background */
+    z-index: 2; /* Positioned below the language popup but above other content */
+}
+
+/* Language Popup */
+.language-popup {
+    display: none;
+    position: absolute;
+    bottom: 25px;
+    left: 30px; 
+    width: 350px;
+    background-color: var(--background-white);
+    color: var(--secondary-slate);
+    padding: 20px 25px 25px 25px; 
+    border-radius: 16px; 
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    z-index: 3; 
+    color: var(--secondary-slate);
+}
+
+.lan-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.lan-content p {
+    opacity: 0.8;
+}
+
+/* Search Languages Bar */
+.search-languages {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.search-languages input {
+    width: 100%;
+    padding: 15px;
+    padding-right: 35px;
+    border-radius: 10px;
+    background-color: #f2f2f2;
+    border: 1px solid #ddd;
+    outline: none;
+    font-size: 14px;
+}
+
+.search-languages button {
+    position: absolute;
+    right: 15px;
+    top: 53%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.search-languages button img {
+    width: 20px;
+    height: 20px;
+}
+
+/* Language Options List */
+.language-options {
+    max-height: 210px; 
+    overflow-y: auto; 
+    margin-bottom: 20px;
+}
+
+.language-options ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+.language-item {
+    background-color: #f2f2f2;
+    padding: 15px;
+    margin-bottom: 10px;
+    margin-right: 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.language-item.selected {
+    background-color: #E9F2FE;
+    border: 1px solid #257bf4;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; 
+    padding: 15px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.language-item:hover {
+    background-color: #E9F2FE;
+}
+
+.tick-icon {
+    width: 20px;
+    height: 20px;
+    display: none;
+}
+
+/* Close Button */
+.close-popup {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 10px;
+}
+
+.close-popup img {
+    cursor: pointer;
+    width: 26px;
+    height: 26px;
+}
+
+/* Save Changes Button */
+.language-btn {
+    width: 100%;
+    padding: 17px 20px;
+    background-color: var(--secondary-slate);
+    color: var(--background-white);
+    border: none;
+    border-radius: 5px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.language-btn:hover {
+    background-color: #1e3a5f;
+}

@@ -11,6 +11,64 @@ openAlerts.addEventListener("click", ()=> {
     sidebar.classList.toggle("open");
 });
 
+document.addEventListener('DOMContentLoaded', function () {
+    const languageLink = document.querySelector('[data-target="language"]');
+    const ripCurrentLink = document.querySelector('[data-target="rip-current"]');
+    const languagePopup = document.getElementById('language-popup');
+    const overlay = document.getElementById('language-popup-overlay'); // Reference to the overlay element
+    const closeIcon = document.getElementById('close-icon');
+    const currentPath = window.location.pathname;
+
+    // Function to display the language popup
+    function openLanguagePopup() {
+        languagePopup.style.display = 'block'; // Show the language popup
+        overlay.style.display = 'block'; // Show the overlay to darken the background
+        ripCurrentLink.classList.remove('active'); // Remove the active state from Rip Current
+        languageLink.classList.add('active'); // Add active state to Language item
+    }
+
+    // Function to hide the language popup
+    function closeLanguagePopup() {
+        languagePopup.style.display = 'none'; // Hide the language popup
+        overlay.style.display = 'none'; // Hide the overlay
+        languageLink.classList.remove('active'); // Remove the active state from Language
+        ripCurrentLink.classList.add('active'); // Add active state back to Rip Current
+    }
+
+    // Event listener for Language link click
+    languageLink.addEventListener('click', function (event) {
+        event.preventDefault(); // Prevent default anchor behavior
+
+        // Check if the user is already on the Rip Currents page
+        if (currentPath.includes('/assets/pages/rip-current.html')) {
+            // If the user is already on the Rip Currents page, open the popup
+            openLanguagePopup();
+        } else {
+            // If the user is on a different page, redirect them to the Rip Currents page
+            // and add a query parameter to indicate the popup should be opened
+            window.location.href = '/assets/pages/rip-current.html?showLanguagePopup=true';
+        }
+    });
+
+    // Event listener for Close icon click
+    closeIcon.addEventListener('click', function () {
+        closeLanguagePopup();
+    });
+
+    // Event listener for clicking outside the popup to close it
+    window.addEventListener('click', function (event) {
+        if (event.target === overlay) {
+            closeLanguagePopup();
+        }
+    });
+
+    // Automatically open the language popup if the query parameter is present
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.has('showLanguagePopup') && currentPath.includes('/assets/pages/rip-current.html')) {
+        openLanguagePopup();
+    }
+});
+
 // Load Leaflett Interactive Map
 document.addEventListener('DOMContentLoaded', function () {
 
@@ -20,7 +78,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     var map1 = L.map('map', {
         center: [-33.699297, 151.309423],
-        zoom: 17,
+        zoom: 18,
         zoomControl: true
     });
 

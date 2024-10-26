@@ -139,6 +139,11 @@ body {
     opacity: 0.7;
 }
 
+.sidebar .container .nav-box .nav-items ul li .disabled {
+    opacity: 20%;
+    cursor: default;
+}
+
 .sidebar .container .nav-box .nav-items ul li a.active {
     background-color: rgba(37, 123, 244, 0.1);
     color: var(--primary-blue);
@@ -569,140 +574,6 @@ body {
 
 .qr-code-wrapper {
     height: 100%;
-}
-
-/* Rip Currents */
-#rip-current .content {
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
-}
-
-#rip-current .content .title-box {
-    display: flex;
-    width: 100%;
-    /* border: 1px red solid; */
-}
-
-#rip-current .content .title-box h1 {
-    font-size: 28px;
-}
-
-#rip-current .content .info-box {
-    display: flex;
-    display: row;
-    justify-content: space-between;
-    width: 100%;
-    height: 100%;
-    /* border: 1px red solid; */
-}
-
-/* Rip Current - Explain Box */
-#rip-current .content .info-box .rip-explain {
-    display: flex;
-    flex-direction: column;
-    gap: 50px;
-    background-color: var(--background-white);
-    color: var(--secondary-slate);
-    width: 60%;
-    height: 100%;
-    padding: 30px;
-    border-radius: 16px;
-    box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
-    /* border: 1px red solid; */
-}
-
-#rip-current .content .info-box .rip-explain .rip-title {
-    width: 100%;
-    /* border: 1px red solid; */
-}
-
-#rip-current .content .info-box .rip-explain .rip-details {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    gap: 40px;
-    width: 100%;
-    /* border: 1px red solid; */
-}
-
-#rip-current .content .info-box .rip-explain .rip-details .rip-detail-item img {
-    height: 30px;
-    margin-bottom: 10px;
-}
-
-#rip-current .content .info-box .rip-explain .rip-img {
-    width: 100%;
-    height: 100%;
-    border-radius: 10px;
-    /* border: 1px red solid; */
-}
-
-#rip-current .content .info-box .rip-explain .rip-img img {
-    border-radius: 10px;
-    width: 100%;
-    height: 100%;
-}
-
-/* Rip Current - Escape Box */
-#rip-current .content .info-box .rip-escape {
-    display: flex;
-    flex-direction: column;
-    gap: 50px;
-    background-color: var(--background-white);
-    color: var(--secondary-slate);
-    width: 37%;
-    height: auto;
-    padding: 30px;
-    border-radius: 16px;
-    box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
-    /* border: 1px red solid; */
-}
-
-#rip-current .content .info-box .rip-escape .rip-title {
-    width: 100%;
-    /* border: 1px red solid; */
-}
-
-#rip-current .content .info-box .rip-escape .escape-info {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    gap: 20px;
-    width: 100%;
-    height: 70%;
-    /* border: 1px red solid; */
-}
-
-#rip-current .content .info-box .rip-escape .escape-info .escape-step {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 30px;
-    width: 100%;
-}
-
-#rip-current .content .info-box .rip-escape .escape-info .escape-step img {
-    height: 140px;
-}
-
-#do-not-step{
-    margin-top: 50px;
-}
-
-#rip-current .content .info-box .rip-escape .escape-info .escape-step .escape-step-content {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    gap: 10px;
-}
-
-#rip-current .content .info-box .rip-escape .escape-info .escape-step .escape-step-content h3 {
-    font-size: 28px;
-}
-
-#rip-current .content .info-box .rip-escape .escape-info .escape-step .escape-step-content p {
-    font-size: 16px;
 }
 
 /* Get Alerts Styling */
