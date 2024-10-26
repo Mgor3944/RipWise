@@ -119,24 +119,47 @@
             <!-- Main Content - Home -->
             <div class="main-content" id="home">
                 <div class="wrapper">
-                    <div class="map-container" id="map"></div>
-                    <div class="live-feed-container" id="live-feed" style="display: none"></div> 
 
-                    <!-- Popups -->
+                    <!-- Map Large -->
+                    <div id="map" class="map-container" style="display: block;"></div>
+
+                    <!-- Live Camera Large -->
+                     <div id="cam-feed-wrapper" class="cam-feed-wrapper" style="display: none;">
+                        <video class="beach-vid-big" autoplay loop muted>
+                            <source src="/assets/trimmed_compressed.mov" type="video/mp4">
+                        </video>
+                        <div class="live-signal-big">
+                            <div class="live-circle-big"></div>
+                            <h4>Live</h4>
+                            <span id="live-time"></span>
+                        </div>
+                        <div class="green-rectangle-big">
+                            <div class="rect-content">
+                                <svg class="large-tick" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M1 4.99934L5.00028 8.99963L13 0.999023" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                <h1>Safe Swim Zone</h1>
+                            </div>
+                        </div> 
+                     </div>
+
+                    <!-- Popup -->
                     <div class="live-feed-popup" id="live-feed-popup">
                         <div class="live-feed-wrapper">
                             <div class="expand-popup">
-                                <img class="expand" src="./assets/icons/expand.svg" alt="Expand Icon"/>
-                            </div>
+                                <img class="expand" id="expand-icon" src="./assets/icons/swap.svg" alt="Expand Icon"/>
+                            </div>                            
 
-                            <!-- Safe Swim Zone Live Feed -->
+                            <!-- Safe Swim Zone // Live Feed // Nav -->
                             <div class="p-content" id="live-camera">
                                 <div class="p-content-text">
                                     <h2>Safe Swim Zone <br>less than 300m</h2>
                                     <p>We provide a live camera of the safe swim zone. You can access directions below.</p>
                                 </div>
-                                <div class="camera-wrapper">
-                                    <!-- <img class="beach-img" src="./assets/images/live-feed.png" alt="Beach IMG"/> -->
+
+                                <div id="nav-map-wrap" class="nav-map-wrap" style="display: none;"></div> <!-- Display Map Here -- small -->
+
+                                <div id="live-cam-wrap" class="camera-wrapper" style="display: block;"> <!-- Display Live Camera Feed Here -- small -->
                                     <video class="beach-vid" autoplay loop muted>
                                         <source src="/assets/trimmed_compressed.mov" type="video/mp4">
                                     </video>
@@ -144,8 +167,13 @@
                                         <div class="live-circle"></div> <!-- Flashing Circle -->
                                         <h4>Live</h4>
                                     </div>
+                                    <div class="legend">
+                                        <div class="green-square"></div>
+                                        <h4>Safe Swim Zone</h4>
+                                    </div>
                                     <div class="green-rectangle"></div> <!-- Safe Swim Zone -->
                                 </div>
+
                                 <button type="submit" class="get-directions-btn" id="get-directions">Get Directions</button>  
                             </div>
 

@@ -303,12 +303,97 @@ body {
     border-radius: 20px;
 }
 
+#cam-feed-wrapper {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+}
+
+#cam-feed-wrapper .beach-vid-big {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+#cam-feed-wrapper .live-signal-big {
+    position: absolute;
+    top: 2%;
+    left: 2%;
+    display: flex;
+    flex-direction: row;
+    align-items: center; /* Horizontally aligns elements */
+    gap: 10px;
+    padding: 10px 25px;
+    background-color: rgb(44, 47, 67, 0.1); /* Adding a background to make it more visible */
+    border-radius: 200px;
+}
+
+#cam-feed-wrapper .live-signal-big h4 {
+    color: var(--primary-blue);
+    margin: 0;
+    font-size: 16px;
+}
+
+.live-signal-big #live-time {
+    color: var(--secondary-slate);
+    font-weight: 500;
+}
+
+#cam-feed-wrapper .live-signal-big .live-circle-big {
+    width: 15px;
+    height: 15px;
+    background-color: var(--primary-blue);
+    border-radius: 50%;
+    animation: flash 1.5s infinite alternate;
+}
+
+#cam-feed-wrapper  .green-rectangle-big {
+    position: absolute;
+    top: 47%;
+    left: 53%;
+    transform: translate(-50%, -50%);
+    width: 40%;
+    height: 30%;
+    background-color: rgba(14, 219, 35, 0.35);
+    border: 2px solid #0EDB23;
+    border-radius: 12px;
+}
+
+.green-rectangle-big .rect-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    gap: 20px;
+
+    color: #fff;
+}
+
+.rect-content .large-tick {
+    height: 40px;
+}
+
+.rect-content .large-tick path {
+    stroke: #fff;
+}
+
+
 #home .live-feed-popup {
     position: absolute;
     bottom: 30px;
     left: 30px; 
     width: 350px;
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: rgba(255, 255, 255, 0.95);
     padding: 20px 25px 25px 25px; 
     border-radius: 16px; 
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
@@ -326,14 +411,12 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: right;
-    text-align: right;
     width: 100%;
     cursor: pointer;
-    /* border: 1px solid red; */
 }
 
-.live-feed-popup .live-feed-wrapper .expand-popup .expand-icon {
-    height: 30px;
+.live-feed-popup .live-feed-wrapper .expand-popup #expand-icon {
+    height: 25px;
 }
 
 .live-feed-popup .live-feed-wrapper .p-content {
@@ -354,12 +437,20 @@ body {
     font-size: 14px;
 }
 
+.nav-map-wrap {
+    position: relative;
+    width: 100%;
+    height: 230px;
+    border-radius: 10px;
+    background-color: var(--secondary-slate-10);
+}
+
 .live-feed-popup .live-feed-wrapper .p-content .camera-wrapper {
     position: relative;
     display: inline-block;
     overflow: hidden;
     width: 100%;
-    height: 200px;
+    height: 230px;
     border-radius: 10px;
 }
 
@@ -375,7 +466,7 @@ body {
     height: 100%;
     border-radius: 10px;
     object-fit: cover;
-    border: 1px solid var(--secondary-slate-70);
+    border: 1px solid var(--secondary-slate-10);
 }
 
 .camera-wrapper .live-signal {
@@ -413,15 +504,39 @@ body {
     }
 }
 
+.legend {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 7px;
+    border-radius: 5px;
+}
+
+.legend h4 {
+    color: #0EDB23;
+    margin: 0;
+    font-size: 14px;
+}
+
+.legend .green-square {
+    width: 12px;
+    height: 12px;
+    background-color: #0EDB23;
+    border-radius: 3px;
+}
+
 /* Safe Swim Zone styling */
 .green-rectangle {
     position: absolute;
-    top: 47%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 50%;
-    height: 37%;
-    background-color: rgba(14, 219, 35, 0.20);
+    width: 55%;
+    height: 30%;
+    background-color: rgba(14, 219, 35, 0.2);
     border: 2px solid #0EDB23;
     border-radius: 12px;
 }
@@ -439,9 +554,10 @@ body {
 }
 
 #scan-QR-code {
+    display: none;
     align-items: center;
     justify-content: center;
-    padding: 0px 0px 10px 0px;
+    padding: 10px 0px 0px 0px;
     gap: 25px;
     color: var(--secondary-slate);
 }

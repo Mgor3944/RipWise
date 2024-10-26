@@ -50,13 +50,13 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Display the selected contactable time
-    const contactTimeContainer = document.querySelector('.userSelectedTime');
+    // const contactTimeContainer = document.querySelector('.userSelectedTime');
 
-    if (contactTime.from && contactTime.to) {
-        contactTimeContainer.innerHTML = `<span class="retrievedTime"> Contact Time: <strong>From ${contactTime.from} to ${contactTime.to}</strong></span>`;
-    } else {
-        contactTimeContainer.textContent = 'No contact time specified.';
-    }
+    // if (contactTime.from && contactTime.to) {
+    //     contactTimeContainer.innerHTML = `<span class="retrievedTime"> Contact Time: <strong>From ${contactTime.from} to ${contactTime.to}</strong></span>`;
+    // } else {
+    //     contactTimeContainer.textContent = 'No contact time specified.';
+    // }
 
     ///////////////////////////////
     ///////////////////////////////
@@ -139,7 +139,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Create a polyline to show the customized route and add it to the map-mobile
     var customPolyline = L.polyline(latlngs, {
         color: '#257BF4',
-        weight: 5,
+        weight: 4,
         opacity: 0.8,
         dashArray: '5, 10' // Optional: make the polyline dashed to indicate a suggested route
     }).addTo(mapMobile);

@@ -88,7 +88,7 @@ body {
 .right-items {
     display: flex;
     flex-direction: row;
-    gap: 20px;
+    gap: 10px;
 }
 
 .ripwise-logo {
@@ -214,6 +214,7 @@ body {
     padding: 10px;
     border-radius: 100px;
     background: var(--secondary-slate-10);
+    opacity: 0.4;
 }
 
 .destination-name {
@@ -227,7 +228,6 @@ body {
     font-weight: 500;
     color: #2BB939;
 }
-
 
 .nav-btn {
     display: flex;
@@ -282,7 +282,7 @@ body {
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 275px;
+    height: 290px;
     padding-bottom: env(safe-area-inset-bottom); /* Adjusts for the Safari tab bar */
 
     background: rgba(255, 255, 255, 0.95);
@@ -345,7 +345,7 @@ body {
     display: flex;
     flex-direction: column;
     width: 80%;
-    height: 100px;
+    height: 110px;
     position: absolute;
     left: 50%;
     top: 15%;
@@ -385,7 +385,7 @@ body {
 }
 
 .live-signal-new h4 {
-    color: var(--primary-blue);
+    color: var(--secondary-slate-70);
     margin: 0;
     font-size: 14px;
 }
@@ -393,7 +393,7 @@ body {
 .ripwise-live-feed .live-circle-new {
     width: 12px;
     height: 12px;
-    background-color: var(--primary-blue);
+    background-color: #f42525;
     border-radius: 50%;
     animation: flash 1.5s infinite alternate;
 }
@@ -407,6 +407,30 @@ body {
     }
 }
 
+.legend {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 7px;
+    border-radius: 5px;
+}
+
+.legend h4 {
+    color: #0EDB23;
+    margin: 0;
+    font-size: 14px;
+}
+
+.legend .green-square {
+    width: 12px;
+    height: 12px;
+    background-color: #0EDB23;
+    border-radius: 3px;
+}
+
 /* /////////////////// */
 /* /////////////////// */
 /* Alert Popup Styline */
@@ -414,7 +438,7 @@ body {
 /* /////////////////// */
 
 .alert-popup-overlay {
-    display: none; /* Initially hidden */
+    display: none; /* Initially hidden --> Then display: block */
     position: fixed;
     top: 0;
     left: 0;
@@ -425,7 +449,7 @@ body {
 }
   
 .alerts-popup {
-    display: none; /* Initially hidden */
+    display: none; /* Initially hidden --> Then display: block */
 
     position: fixed;
     top: 50%;
@@ -457,9 +481,10 @@ body {
 }
 
 .userSelectedAlerts .retrievedAlert {
-    padding: 10px 15px;
+    padding: 10px 20px;
     background-color: rgb(37, 123, 244, 0.2);
     color: var(--secondary-slate);
+    border-radius: 100px;
 }
   
 .close-alert-popup {
@@ -481,10 +506,6 @@ body {
 
 
 @media only screen and (max-width: 380px) {
-
-    .topbar .right-items {
-        gap: 10px;
-    }
 
     .topbar .right-items .live-camera-link {
         padding: 10px;

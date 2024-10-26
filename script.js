@@ -13,37 +13,29 @@ openAlerts.addEventListener("click", ()=> {
 
 // Load Leaflett Interactive Map
 document.addEventListener('DOMContentLoaded', function () {
-    // Initialize the map and set its view to a given geographical location and zoom level
-    var map = L.map('map').setView([-33.698838, 151.309927], 17); // Turimetta Beach coordinates [latitude, longitude] and zoom level
 
-    // Define different map views
-    var streetLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    ///////////
+    // Initialize the first map
+    ///////////
+
+    var map1 = L.map('map', {
+        center: [-33.699297, 151.309423],
+        zoom: 17,
+        zoomControl: true
+    });
+
+    // Define streetLayer for map1
+    var streetLayer1 = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     });
+    streetLayer1.addTo(map1);
 
-    var satelliteLayer = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; <a href="https://opentopomap.org/">OpenTopoMap</a> contributors'
-    });
+    var kioskMarker1 = L.marker([-33.699788, 151.308555]).addTo(map1);
+    kioskMarker1.bindPopup("You're here<br><b>RipWise Kiosk</b>").openPopup();
 
-    // Add default map view
-    streetLayer.addTo(map);
+    var safeSwimMarker1 = L.marker([-33.698805, 151.310291]).addTo(map1);
+    safeSwimMarker1.bindPopup('Destination<br><b>Safe Swim Zone</b>').openPopup();
 
-    // Create a layers control and add to the map to switch views
-    var baseMaps = {
-        "Street View": streetLayer,
-        "Satellite View": satelliteLayer
-    };
-    L.control.layers(baseMaps).addTo(map);
-
-    // Add a marker for the kiosk location
-    var kioskMarker = L.marker([-33.699788, 151.308555]).addTo(map);
-    kioskMarker.bindPopup('<b>RipWise Kiosk</b><br>This is where you are located.').openPopup();
-
-    // Add a marker for the safe swim zone location
-    var safeSwimMarker = L.marker([-33.698805, 151.310291]).addTo(map);
-    safeSwimMarker.bindPopup('Safe Swim Zone<br><b>Turimetta Beach</b>').openPopup();
-
-    // Create a polyline to show the path from the kiosk to the safe swim zone
     var latlngs = [
         [-33.699788, 151.308555], // ripwise kiosk
         [-33.699797, 151.308613],
@@ -55,19 +47,85 @@ document.addEventListener('DOMContentLoaded', function () {
         [-33.698805, 151.310291] // safe swim zone
     ];
 
-    // Create a polyline with dashed styles and add it to the map
-    var polyline = L.polyline(latlngs, {
+    var polyline1 = L.polyline(latlngs, {
         color: '#257BF4',
         dashArray: '10, 10'
-    }).addTo(map);
+    }).addTo(map1);
 
-    polyline.bindPopup('<div class="custom-popup">Path from Kiosk to Safe Swim Zone</div>');
+    polyline1.bindPopup('<div class="custom-popup">Path from Kiosk to Safe Swim Zone</div>');
 
     ///////////
-    // BREAK //
+    // Initialize the second map --> small version for popup
     ///////////
 
-    // Generate QR Code 
+    var map2 = L.map('nav-map-wrap', {
+        center: [-33.699297, 151.309423],
+        zoom: 17,
+        zoomControl: false
+    });
+
+    // Add default map view to the second map
+    var streetLayer2 = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    });
+    streetLayer2.addTo(map2);
+
+    // Add markers and polyline to the second map
+    var kioskMarker2 = L.marker([-33.699788, 151.308555]).addTo(map2);
+
+    var safeSwimMarker2 = L.marker([-33.698805, 151.310291]).addTo(map2);
+    safeSwimMarker2.bindPopup('Destination<br><b>Safe Swim Zone</b>');
+
+    var polyline2 = L.polyline(latlngs, {
+        color: '#257BF4',
+        dashArray: '10, 10'
+    }).addTo(map2);
+
+    polyline2.bindPopup('<div class="custom-popup">Path from Kiosk to Safe Swim Zone</div>');
+
+    ///////////
+    // Expand Icon Click Event Listener
+    ///////////
+
+    const expandIcon = document.getElementById('expand-icon');
+    const mapContainer = document.getElementById('map'); // Full-size map container
+    const camFeedWrapper = document.getElementById('cam-feed-wrapper'); // Full-size camera feed
+    const liveCamWrap = document.getElementById('live-cam-wrap'); // Live Camera popup
+    const navMapWrap = document.getElementById('nav-map-wrap'); // Small Map popup
+    const pContentText = document.querySelector('.p-content-text p'); // Text in content section
+
+    expandIcon.addEventListener('click', function () {
+        if (mapContainer.style.display === 'none') {
+
+            // Display the large map and small live camera feed
+
+            mapContainer.style.display = 'block';
+            camFeedWrapper.style.display = 'none';
+            liveCamWrap.style.display = 'block';
+            navMapWrap.style.display = 'none';
+
+            pContentText.textContent = "We provide a live camera of the safe swim zone. You can access directions below.";
+    
+            map1.invalidateSize(); // Recalculate size for map1 when it's displayed
+        } else {
+
+            // Display the large live camera feed and the small map
+
+            mapContainer.style.display = 'none';
+            camFeedWrapper.style.display = 'block';
+            liveCamWrap.style.display = 'none';
+            navMapWrap.style.display = 'block';
+    
+            pContentText.textContent = "We provide real-time navigation to the safe swimming zone. ";
+    
+            map2.invalidateSize(); // Recalculate size for map2 when it's displayed
+        }
+    });
+
+    ///////////
+    // Generate QR Code for Nav Directions on Mobile
+    ///////////
+
     const qrContainer = document.querySelector('.QR-code');
 
     const url_new = new URL('/assets/pages/mobile.html', window.location.origin);
@@ -85,23 +143,45 @@ document.addEventListener('DOMContentLoaded', function () {
     qrContainer.appendChild(qrCode.element); // send QR code to html
 
     ///////////
-    // BREAK //
+    // Display QR code page of popup on click
     ///////////
 
-    // Toggle between live camera popup states
     const liveCameraSection = document.getElementById('live-camera');
     const scanQrSection = document.getElementById('scan-QR-code');
     const getDirectionsButton = document.getElementById('get-directions');
 
-    scanQrSection.style.display = 'none';
-
     getDirectionsButton.addEventListener('click', function() {
         liveCameraSection.style.display = 'none';
+        expandIcon.style.display = 'none';
         scanQrSection.style.display = 'flex';
     });
+
+    ///////////
+    // Display Current Time
+    ///////////
+
+    function updateTime() {
+        // Create a new Date object and convert to AEST timezone
+        const now = new Date();
+
+        // Options to display the time correctly in AEST
+        const options = {
+            timeZone: 'Australia/Sydney', // Time zone for AEST
+            hour: 'numeric',
+            minute: '2-digit',
+            hour12: true // Use 24-hour format
+        };
+
+        // Format the current time as AEST
+        const currentTimeAEST = now.toLocaleTimeString('en-AU', options);
+
+        // Update the HTML element with the current time
+        document.getElementById('live-time').textContent = currentTimeAEST;
+    }
+
+    // Update the time every second
+    setInterval(updateTime, 1000);
+
+    // Initial call to set the time immediately
+    updateTime();
 });
-
-
-
-
-
