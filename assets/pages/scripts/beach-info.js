@@ -115,12 +115,14 @@ function updateUvIndex() {
             const uvIndexArray = data.hourly.uv_index;
 
             // Get the current date in the format 'YYYY-MM-DD'
-            const currentDate = new Date().toISOString().split('T')[0];
+            const currentDate = new Date().toLocaleDateString('en-CA'); // Format as YYYY-MM-DD
             const now = new Date();
             const currentHour = now.getHours(); 
 
             // Find the starting index for the current day at midnight
             const startIndex = timeArray.findIndex(time => time.startsWith(`${currentDate}T00:00`));
+            console.log("start index" + startIndex)
+            console.log(currentDate)
 
 
             // Slice arrays to get the 24 hours of the current day (from midnight to 23:00)
@@ -163,7 +165,7 @@ function updateUvIndex() {
                 windElement.textContent = `${windSpeed} km/h`;
             } else {
                 // Fallback if windSpeed is null or undefined
-                windElement.textContent = 'N/A';
+                windElement.textContent = 'Unavailable';
             }
 
             // Current UV
@@ -171,7 +173,7 @@ function updateUvIndex() {
                 currentUvElement.textContent = `${currentUvIndex}`;
             } else {
                 // Fallback if windSpeed is null or undefined
-                currentUvElement.textContent = 'N/A';
+                currentUvElement.textContent = 'Unavailable';
             }
 
             // Max UV
