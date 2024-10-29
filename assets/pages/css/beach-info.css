@@ -30,6 +30,7 @@ body {
     overflow: hidden;
 }
 
+/* General Styles */
 #beach-info {
     display: flex;
     flex-direction: column;
@@ -40,47 +41,51 @@ body {
     height: 100%;
 }
 
-.beach-conditions-container {
-    border: 1px solid red;
-    display: flex;
+#beach-info .content {
+    background-color: var(--background-ghost);
 }
 
-/* Weather */
+.beach-conditions-container {
+    position: relative;
+    width: 100%;
+    padding: 20px;
+    /* border: 1px solid red; */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+}
+
+/* Weather Container */
 #weather-container {
-    background: white !important;
+    flex: 2;
+    background: #fff;
     max-width: 400px;
     padding: 20px;
     border-radius: 15px;
     backdrop-filter: blur(10px);
-    border: 1px solid black !important;
     text-align: center;
-    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
-#city {
-    width: calc(100% - 16px);
-    padding: 8px;
-    box-sizing: border-box;
-    border-radius: 10px;
-    border: 1px solid white;
-    margin-top: 20px;
+#weather-icon {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto 10px;
+    display: none;
 }
 
-#temp-div p {
+#temp-div {
     font-size: 60px;
     margin-top: -30px;
 }
 
 #weather-info {
     font-size: 20px;
-}
-
-#weather-icon {
-    width: 200px;
-    height: 200px;
-    margin: 0 auto 10px; 
-    margin-bottom: 0;
-    display: none;
 }
 
 #hourly-forecast {
@@ -112,92 +117,89 @@ body {
     margin-top: 10px;
 }
 
-.beach-conditions-container {
-    position: relative;
-    width: 85%;
-    padding: 20px;
-    /* background: #f0f0f0; */
-    transform: translate(-50%, -50%);
-    top: 40%;
-    left: 50%;
-    display: flex;
-    gap: 20px;
-}
-
-#weather-container {
-    flex: 2;
-    padding: 20px;
-    background: #e0e0e0;
-}
-
+/* Other Beach Info */
 .other-beach-info {
-    flex: 1;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    gap: 10px;
+    grid-template-columns: repeat(2, minmax(min-content, max-content));
+    grid-template-rows: auto;
+    gap: 40px;
+    justify-content: center;
+    align-items: stretch;
+    /* border: 1px solid red; */
 }
 
-#wind {
-    /* background-color: #add8e6; */
-    display: flex;
-    border-radius: 15px;
-}
-
-#swell {
-    /* background-color: #90ee90; */
-    display: flex;
-    border-radius: 15px;
-}
-
-#emergency {
-    /* background-color: #ffa500; */
-    display: flex;
-}
-
+/* Beach Info Details */
 .beach-info-detail {
     background-color: #ffffff;
-    border: 1px solid black;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-    padding: 10px 10px 10px 30px;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 30px;
     border-radius: 15px;
-    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    /* border: 1px solid red; */
 }
 
 .beach-info-index-title {
-    font-size: 1.5em;
+    font-size: 1.2em;
     font-weight: bold;
 }
+
 .beach-info-index-value {
     display: flex;
+    flex-direction: row;
     align-items: center;
-    font-size: 2.5em;
-    margin: 10px 0;
+    font-size: 3.2em;
+    /* margin: 10px 0; */
+    gap: 30px;
+    /* border: 1px solid red; */
 }
+
+.beach-info-detail img {
+    width: 50px;
+    height: 50px;
+}
+
 .beach-info-max-today {
     font-size: 1em;
     color: #333;
     margin-top: 10px;
 }
-.beach-info-detail img {
-    width: 40px;
-    height: 40px;
-    margin-left: 10px;
-}
 
 .beach-info-top-line {
     display: flex;
+    flex-direction: row;
     align-items: center;
-    margin: 10px 0;
+    justify-content: space-between;
+    width: 100%;
+    /* border: 1px solid red; */
 }
 
-.beach-info-floating-max{
-    background: orange;
-    font-size: 1em;
+.beach-info-floating-max {
+    background-color: #F48925;
+    color: #fff;
+    font-size: 0.9em;
+    font-weight: 600;
     margin-left: 50px;
-    border-radius: 10px;
-    padding: 2px 15px;
+    border-radius: 5px;
+    padding: 4px 15px;
+}
+
+/* Specific Detail Containers */
+#uv-index,
+#wind,
+#swell,
+#emergency {
+    display: flex;
+    border-radius: 15px;
+}
+
+.call {
+    font-size: 24px;
+}
+
+.number {
+    color: #F48925;
+    font-weight: 700;
 }
