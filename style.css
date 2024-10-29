@@ -581,12 +581,6 @@ body {
 #get-alerts .content {
     display: flex;
     flex-direction: column;
-    /* gap: 40px; */
-}
-
-#get-alerts .content {
-    display: flex;
-    flex-direction: column;
     gap: 40px;
 }
 
