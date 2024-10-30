@@ -50,7 +50,7 @@ body {
     width: 100%;
     padding: 20px;
     /* border: 1px solid red; */
-    top: 50%;
+    top: 48%;
     left: 50%;
     transform: translate(-50%, -50%);
     display: flex;
@@ -81,6 +81,7 @@ body {
 
 #temp-div {
     font-size: 60px;
+    font-weight: 600;
     margin-top: -30px;
 }
 
@@ -93,7 +94,8 @@ body {
     overflow-x: auto;
     white-space: nowrap;
     display: flex;
-    justify-content: space-between;
+    gap: 10px;
+    justify-content: flex-start;
 }
 
 .hourly-item {
@@ -134,7 +136,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    gap: 12px;
+    gap: 15px;
     padding: 30px;
     border-radius: 15px;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
@@ -143,7 +145,7 @@ body {
 
 .beach-info-index-title {
     font-size: 1.2em;
-    font-weight: bold;
+    font-weight: 500;
 }
 
 .beach-info-index-value {
@@ -151,6 +153,7 @@ body {
     flex-direction: row;
     align-items: center;
     font-size: 3.2em;
+    font-weight: 600;
     /* margin: 10px 0; */
     gap: 30px;
     /* border: 1px solid red; */
@@ -163,8 +166,8 @@ body {
 
 .beach-info-max-today {
     font-size: 1em;
-    color: #333;
-    margin-top: 10px;
+    color: var(--secondary-slate);
+    /* margin-top: 100px; */
 }
 
 .beach-info-top-line {
@@ -186,6 +189,10 @@ body {
     padding: 4px 15px;
 }
 
+.highlight-blue {
+    background-color: var(--primary-blue);
+}
+
 /* Specific Detail Containers */
 #uv-index,
 #wind,
@@ -202,4 +209,10 @@ body {
 .number {
     color: #F48925;
     font-weight: 700;
+}
+
+#dynamic-uv-max,
+#dynamic-wind-max,
+#dynamic-swell-max {
+    font-weight: bold;
 }
