@@ -2,11 +2,18 @@ document.addEventListener('DOMContentLoaded', function () {
     const languageItems = document.querySelectorAll('.language-item');
     const searchInput = document.getElementById('language-search');
     const updateButton = document.getElementById('language-btn');
-    let selectedLanguage = 'english'; // Default language is set to English
+    const languagePopup = document.getElementById('language-popup');
+    const languagePopupOverlay = document.getElementById('language-popup-overlay');
+    const noResultsMessage = document.getElementById('no-results-message'); // Added no-results-message element
+    let activeLanguage = 'en'; // Default language is set to English
+    let previewLanguage = 'en'; // Temporary variable for preview language
 
     // Object to store translations for different languages
     const translations = {
         fr: {
+            'title-box': {
+                'ripCurrents': 'Courants d\'arrachement'
+            },
             'rip-title': {
                 'whatIsARip': 'Qu\'est-ce qu\'un courant d\'arrachement?',
                 'escapeARip': 'Échapper à un courant'
@@ -36,6 +43,9 @@ document.addEventListener('DOMContentLoaded', function () {
             ]
         },
         en: {
+            'title-box': {
+                'ripCurrents': 'Rip Currents'
+            },
             'rip-title': {
                 'whatIsARip': 'What Is A Rip?',
                 'escapeARip': 'Escape A Rip'
@@ -70,6 +80,12 @@ document.addEventListener('DOMContentLoaded', function () {
     function translateContent(language) {
         if (translations[language]) {
             const translation = translations[language];
+
+            // Update the title box
+            const titleBox = document.querySelector('.title-box h1');
+            if (titleBox) {
+                titleBox.textContent = translation['title-box']['ripCurrents'];
+            }
 
             // Update the rip titles
             document.querySelector('.rip-explain .rip-title').textContent = translation['rip-title']['whatIsARip'];
@@ -112,38 +128,82 @@ document.addEventListener('DOMContentLoaded', function () {
             const tickIcon = this.querySelector('.tick-icon');
             if (tickIcon) tickIcon.style.display = 'inline-block';
 
-            // Set the selected language based on user choice
-            selectedLanguage = this.textContent.trim().toLowerCase();
+            // Set the preview language based on user choice
+            previewLanguage = this.textContent.trim().toLowerCase() === 'français' ? 'fr' : 'en';
         });
     });
 
     // Search Filter Functionality
     searchInput.addEventListener('input', function () {
         const filter = searchInput.value.toLowerCase();
+        let matchesFound = false;
+
         languageItems.forEach(item => {
             if (item.textContent.toLowerCase().includes(filter)) {
                 item.style.display = 'flex';
+                matchesFound = true;
             } else {
                 item.style.display = 'none';
             }
         });
+
+        // Show or hide the "no results" message based on matches found
+        noResultsMessage.style.display = matchesFound ? 'none' : 'block';
     });
 
     // Set initial tick icon visibility for default selected item
-    languageItems.forEach(item => {
-        if (item.classList.contains('selected')) {
-            const tickIcon = item.querySelector('.tick-icon');
-            if (tickIcon) tickIcon.style.display = 'inline-block';
-        }
+    function setInitialSelectedLanguage() {
+        languageItems.forEach(item => {
+            if (item.textContent.trim().toLowerCase() === (previewLanguage === 'fr' ? 'français' : 'english')) {
+                item.classList.add('selected');
+                const tickIcon = item.querySelector('.tick-icon');
+                if (tickIcon) tickIcon.style.display = 'inline-block';
+            } else {
+                item.classList.remove('selected');
+                const tickIcon = item.querySelector('.tick-icon');
+                if (tickIcon) tickIcon.style.display = 'none';
+            }
+        });
+    }
+
+    // Event listener for the "Update Content" button
+    updateButton.addEventListener('click', function () {
+        // Update the active language to the preview language
+        activeLanguage = previewLanguage;
+
+        // Translate content to the active language
+        translateContent(activeLanguage);
+
+        // Hide the language popup
+        languagePopup.style.display = 'none';
+        languagePopupOverlay.style.display = 'none';
     });
 
-    // Event listener for the "Update Site" button
-    updateButton.addEventListener('click', function () {
-        if (selectedLanguage === 'français') {
-            translateContent('fr');
-        } else if (selectedLanguage === 'english') {
-            translateContent('en');
-        }
-        // Add more conditions for other languages if needed
+    // Event listeners to open and close the language popup
+    document.querySelector('[data-target="language"]').addEventListener('click', function () {
+        // Set the preview language to the current active language when the popup is opened
+        previewLanguage = activeLanguage;
+
+        // Set the initial selection when the popup is opened
+        setInitialSelectedLanguage();
+
+        languagePopup.style.display = 'block';
+        languagePopupOverlay.style.display = 'block';
     });
+
+    document.getElementById('close-icon').addEventListener('click', function () {
+        // Hide the language popup without updating the language
+        languagePopup.style.display = 'none';
+        languagePopupOverlay.style.display = 'none';
+    });
+
+    languagePopupOverlay.addEventListener('click', function () {
+        // Hide the language popup without updating the language
+        languagePopup.style.display = 'none';
+        languagePopupOverlay.style.display = 'none';
+    });
+
+    // Set the default selection on the first load
+    setInitialSelectedLanguage();
+    translateContent(activeLanguage);
 });

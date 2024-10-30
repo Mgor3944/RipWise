@@ -239,6 +239,14 @@ body {
     height: 20px;
 }
 
+/* No Search Results Message */
+#no-results-message {
+    display: none;
+    text-align: center;
+    font-size: 14px;
+    color: var(--secondary-slate-70);
+}
+
 /* Language Options List */
 .language-options {
     max-height: 210px; 

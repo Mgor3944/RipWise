@@ -25,33 +25,35 @@ function toggleMenuIcon() {
     }
 }
 
+// 
 document.addEventListener('DOMContentLoaded', function () {
     const languageLink = document.querySelector('[data-target="language"]');
     const ripCurrentLink = document.querySelector('[data-target="rip-current"]');
     const languagePopup = document.getElementById('language-popup');
-    const overlay = document.getElementById('language-popup-overlay'); // Reference to the overlay element
+    const overlay = document.getElementById('language-popup-overlay'); 
     const closeIcon = document.getElementById('close-icon');
+    const updateButton = document.getElementById('language-btn'); 
     const currentPath = window.location.pathname;
 
     // Function to display the language popup
     function openLanguagePopup() {
-        languagePopup.style.display = 'block'; // Show the language popup
-        overlay.style.display = 'block'; // Show the overlay to darken the background
-        ripCurrentLink.classList.remove('active'); // Remove the active state from Rip Current
-        languageLink.classList.add('active'); // Add active state to Language item
+        languagePopup.style.display = 'block'; 
+        overlay.style.display = 'block'; 
+        ripCurrentLink.classList.remove('active'); 
+        languageLink.classList.add('active'); 
     }
 
     // Function to hide the language popup
     function closeLanguagePopup() {
-        languagePopup.style.display = 'none'; // Hide the language popup
-        overlay.style.display = 'none'; // Hide the overlay
-        languageLink.classList.remove('active'); // Remove the active state from Language
-        ripCurrentLink.classList.add('active'); // Add active state back to Rip Current
+        languagePopup.style.display = 'none'; 
+        overlay.style.display = 'none'; 
+        languageLink.classList.remove('active'); 
+        ripCurrentLink.classList.add('active');
     }
 
     // Event listener for Language link click
     languageLink.addEventListener('click', function (event) {
-        event.preventDefault(); // Prevent default anchor behavior
+        event.preventDefault();
 
         // Check if the user is already on the Rip Currents page
         if (currentPath.includes('/assets/pages/rip-current.html')) {
@@ -59,7 +61,6 @@ document.addEventListener('DOMContentLoaded', function () {
             openLanguagePopup();
         } else {
             // If the user is on a different page, redirect them to the Rip Currents page
-            // and add a query parameter to indicate the popup should be opened
             window.location.href = '/assets/pages/rip-current.html?showLanguagePopup=true';
         }
     });
@@ -74,6 +75,11 @@ document.addEventListener('DOMContentLoaded', function () {
         if (event.target === overlay) {
             closeLanguagePopup();
         }
+    });
+
+    // Event listener for "Update Content" button click
+    updateButton.addEventListener('click', function () {
+        closeLanguagePopup(); // Close the language popup and restore the active class
     });
 
     // Automatically open the language popup if the query parameter is present
