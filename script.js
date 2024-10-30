@@ -3,8 +3,8 @@ let sidebar = document.querySelector(".sidebar");
 let menu = document.querySelector(".menu");
 let openAlerts = document.querySelector(".alert-box");
 
-const collapsedIcon = "/assets/icons/menu.svg";
-const expandedIcon = "/assets/icons/menu-close.svg";
+const collapsedIcon = "/assets/icons/menu-close.svg";
+const expandedIcon = "/assets/icons/menu.svg";
 
 menu.addEventListener("click", () => {
     sidebar.classList.toggle("open");
