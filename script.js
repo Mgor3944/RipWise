@@ -3,13 +3,27 @@ let sidebar = document.querySelector(".sidebar");
 let menu = document.querySelector(".menu");
 let openAlerts = document.querySelector(".alert-box");
 
-menu.addEventListener("click", ()=> {
+const collapsedIcon = "/assets/icons/menu.svg";
+const expandedIcon = "/assets/icons/menu-close.svg";
+
+menu.addEventListener("click", () => {
     sidebar.classList.toggle("open");
+    toggleMenuIcon();
 });
 
-openAlerts.addEventListener("click", ()=> {
+openAlerts.addEventListener("click", () => {
     sidebar.classList.toggle("open");
+    toggleMenuIcon();
 });
+
+// Function to toggle the menu icon
+function toggleMenuIcon() {
+    if (sidebar.classList.contains("open")) {
+        menu.src = expandedIcon; // Set to expanded icon
+    } else {
+        menu.src = collapsedIcon; // Set to collapsed icon
+    }
+}
 
 document.addEventListener('DOMContentLoaded', function () {
     const languageLink = document.querySelector('[data-target="language"]');

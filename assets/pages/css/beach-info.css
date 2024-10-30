@@ -57,7 +57,7 @@ body {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    gap: 40px;
+    gap: 50px;
 }
 
 /* Weather Container */
@@ -124,7 +124,7 @@ body {
     display: grid;
     grid-template-columns: repeat(2, minmax(min-content, max-content));
     grid-template-rows: auto;
-    gap: 40px;
+    gap: 50px;
     justify-content: center;
     align-items: stretch;
     /* border: 1px solid red; */
