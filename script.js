@@ -3,8 +3,8 @@ let sidebar = document.querySelector(".sidebar");
 let menu = document.querySelector(".menu");
 let openAlerts = document.querySelector(".alert-box");
 
-const collapsedIcon = "/assets/icons/menu-close.svg";
-const expandedIcon = "/assets/icons/menu.svg";
+const expandedIcon = "/assets/icons/menu-expand.svg";
+const collapsedIcon = "/assets/icons/menu-collapse.svg";
 
 menu.addEventListener("click", () => {
     sidebar.classList.toggle("open");
@@ -19,9 +19,9 @@ openAlerts.addEventListener("click", () => {
 // Function to toggle the menu icon
 function toggleMenuIcon() {
     if (sidebar.classList.contains("open")) {
-        menu.src = expandedIcon; // Set to expanded icon
-    } else {
         menu.src = collapsedIcon; // Set to collapsed icon
+    } else {
+        menu.src = expandedIcon; // Set to expand icon
     }
 }
 
@@ -165,37 +165,42 @@ document.addEventListener('DOMContentLoaded', function () {
     // Expand Icon Click Event Listener
     ///////////
 
-    const expandIcon = document.getElementById('expand-icon');
-    const mapContainer = document.getElementById('map'); // Full-size map container
-    const camFeedWrapper = document.getElementById('cam-feed-wrapper'); // Full-size camera feed
-    const liveCamWrap = document.getElementById('live-cam-wrap'); // Live Camera popup
-    const navMapWrap = document.getElementById('nav-map-wrap'); // Small Map popup
+    const swapIcon = document.getElementById('swap-icon');
+    const backIcon = document.getElementById('back-icon');
+    const mapContainer = document.getElementById('map'); // Large Map
+    const camFeedWrapper = document.getElementById('cam-feed-wrapper'); // Large Camera Feed
+    const liveCamWrap = document.getElementById('live-cam-wrap'); // Small Camera Feed
+    const navMapWrap = document.getElementById('nav-map-wrap'); // Small Map
     const pContentText = document.querySelector('.p-content-text p'); // Text in content section
 
-    expandIcon.addEventListener('click', function () {
+    let previousView = 'largeMap'; // Track the previous view state
+
+    swapIcon.addEventListener('click', function () {
+
+        swapIcon.classList.add('rotate-180');
+        setTimeout(function() {
+            swapIcon.classList.remove('rotate-180');
+        }, 300); // 100 milliseconds delay
+
         if (mapContainer.style.display === 'none') {
 
             // Display the large map and small live camera feed
-
             mapContainer.style.display = 'block';
             camFeedWrapper.style.display = 'none';
             liveCamWrap.style.display = 'block';
             navMapWrap.style.display = 'none';
-
-            pContentText.textContent = "We provide a live camera of the safe swim zone. You can access directions below.";
-    
+            pContentText.textContent = "We provide a live camera of the safe swim zone. Get directions below.";
+            previousView = 'largeMap';
             map1.invalidateSize(); // Recalculate size for map1 when it's displayed
         } else {
 
             // Display the large live camera feed and the small map
-
             mapContainer.style.display = 'none';
             camFeedWrapper.style.display = 'block';
             liveCamWrap.style.display = 'none';
             navMapWrap.style.display = 'block';
-    
-            pContentText.textContent = "We provide real-time navigation to the safe swimming zone. ";
-    
+            pContentText.textContent = "We provide real-time directions to the safe swimming zone. Get directions below.";
+            previousView = 'smallMap';
             map2.invalidateSize(); // Recalculate size for map2 when it's displayed
         }
     });
@@ -221,7 +226,7 @@ document.addEventListener('DOMContentLoaded', function () {
     qrContainer.appendChild(qrCode.element); // send QR code to html
 
     ///////////
-    // Display QR code page of popup on click
+    // Display The Scan QR Code Page of Popup
     ///////////
 
     const liveCameraSection = document.getElementById('live-camera');
@@ -230,8 +235,38 @@ document.addEventListener('DOMContentLoaded', function () {
 
     getDirectionsButton.addEventListener('click', function() {
         liveCameraSection.style.display = 'none';
-        expandIcon.style.display = 'none';
+        swapIcon.style.display = 'none';
+        backIcon.style.display = 'flex';
         scanQrSection.style.display = 'flex';
+    });
+
+    ///////////
+    // Redisplay Small Camera / Map Page of Popup
+    ///////////
+
+    backIcon.addEventListener('click', function () {
+        scanQrSection.style.display = 'none';
+        backIcon.style.display = 'none';
+        swapIcon.style.display = 'flex';
+        liveCameraSection.style.display = 'flex';
+
+        if (previousView === 'largeMap') {
+            // Return to the large map and small live camera feed
+            mapContainer.style.display = 'block';
+            camFeedWrapper.style.display = 'none';
+            liveCamWrap.style.display = 'block';
+            navMapWrap.style.display = 'none';
+            pContentText.textContent = "We provide a live camera of the safe swim zone. You can access directions below.";
+            map1.invalidateSize();
+        } else if (previousView === 'smallMap') {
+            // Return to the large live camera feed and the small map
+            mapContainer.style.display = 'none';
+            camFeedWrapper.style.display = 'block';
+            liveCamWrap.style.display = 'none';
+            navMapWrap.style.display = 'block';
+            pContentText.textContent = "We provide real-time navigation to the safe swimming zone.";
+            map2.invalidateSize();
+        }
     });
 
     ///////////
@@ -239,27 +274,23 @@ document.addEventListener('DOMContentLoaded', function () {
     ///////////
 
     function updateTime() {
-        // Create a new Date object and convert to AEST timezone
         const now = new Date();
 
-        // Options to display the time correctly in AEST
+        // Display 12 hour time correctly in AEST
         const options = {
-            timeZone: 'Australia/Sydney', // Time zone for AEST
+            timeZone: 'Australia/Sydney',
             hour: 'numeric',
             minute: '2-digit',
-            hour12: true // Use 24-hour format
+            hour12: true 
         };
 
         // Format the current time as AEST
         const currentTimeAEST = now.toLocaleTimeString('en-AU', options);
-
-        // Update the HTML element with the current time
         document.getElementById('live-time').textContent = currentTimeAEST;
     }
 
     // Update the time every second
     setInterval(updateTime, 1000);
 
-    // Initial call to set the time immediately
     updateTime();
 });

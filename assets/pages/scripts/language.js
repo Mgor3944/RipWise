@@ -47,8 +47,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 'ripCurrents': 'Rip Currents'
             },
             'rip-title': {
-                'whatIsARip': 'What Is A Rip?',
-                'escapeARip': 'Escape A Rip'
+                'whatIsARip': 'What is a rip?',
+                'escapeARip': 'Escape a rip'
             },
             'rip-details': [
                 'A rip is a very strong and narrow current that flows out to the sea.',
