@@ -329,7 +329,7 @@ body {
         width: 100%;
         flex-grow: 1;
         gap: 20px;
-        border: 1px solid red;
+        /* border: 1px solid red; */
     }
 
     .rip-explain {

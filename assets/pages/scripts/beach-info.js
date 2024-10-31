@@ -118,6 +118,7 @@ function updateUvIndex() {
             const currentDate = new Date().toLocaleDateString('en-CA'); // Format as YYYY-MM-DD
             const now = new Date();
             const currentHour = now.getHours();
+            
 
             // Find the starting index for the current day at midnight
             const startIndex = timeArray.findIndex(time => time.startsWith(`${currentDate}T00:00`));
@@ -134,6 +135,7 @@ function updateUvIndex() {
             const slicedTimeArray = timeArray.slice(startIndex, startIndex + 24);
             const slicedWindSpeedArray = windSpeedArray.slice(startIndex, startIndex + 24);
             const slicedUvIndexArray = uvIndexArray.slice(startIndex, startIndex + 24);
+            
 
             // Convert the arrays to floats
             const windSpeedArrayAsFloat = slicedWindSpeedArray.map(value => parseFloat(value));
@@ -159,10 +161,12 @@ function updateUvIndex() {
             }
 
             // Find current UV index
-            const currentUvIndex = Math.round(slicedUvIndexArray[currentHour]) || 'Unavailable';
+            const currentUvIndex = Math.round(slicedUvIndexArray[currentHour]);
+            
 
             // Log the current values
             console.log('currentHour is: ', currentHour);
+            console.log('UV index array: ', slicedUvIndexArray);
             console.log('Wind Speed:', windSpeed, 'km/h');
             console.log('Wind Direction:', windDirection, 'degrees');
             console.log('current UV', currentUvIndex);
