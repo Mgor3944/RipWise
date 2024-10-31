@@ -1,5 +1,5 @@
 /* Import Poppins Font Family - Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap');
 
 /* Root Colour Palette */
 :root {
@@ -35,9 +35,10 @@ body {
     position: relative;
     display: flex;
     flex-direction: column;
-    height: 100%; 
-    justify-content: flex-start; 
+    height: 100%;
+    justify-content: flex-start;
     background-color: var(--background-ghost);
+    overflow: hidden;
 }
 
 /* Title Box */
@@ -55,10 +56,13 @@ body {
 #rip-current .content .info-box {
     display: flex;
     flex-direction: row;
-    align-items: flex-end; 
-    justify-content: space-between; 
+    align-items: flex-start;
+    justify-content: space-between;
     width: 100%;
-    height: 100%;
+    flex-grow: 1;
+    overflow-y: auto;
+    gap: 20px;
+    /* border: 1px solid red; */
 }
 
 /* Rip Current - Explain Box */
@@ -68,8 +72,7 @@ body {
     gap: 40px;
     background-color: var(--background-white);
     color: var(--secondary-slate);
-    width: 60%;
-    height: auto;
+    width: 67%;
     padding: 30px;
     border-radius: 16px;
     box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
@@ -79,6 +82,7 @@ body {
 .rip-explain .rip-title {
     width: 100%;
 }
+
 /* Rip Details */
 .rip-explain .rip-details {
     display: flex;
@@ -96,7 +100,6 @@ body {
 .rip-explain .rip-vid {
     width: 100%;
     border-radius: 10px;
-    /* border: 1px red solid; */
 }
 
 .rip-explain .rip-vid video {
@@ -107,41 +110,36 @@ body {
 #rip-current .content .info-box .rip-escape {
     display: flex;
     flex-direction: column;
-    gap: 50px;
+    gap: 20px;
     background-color: var(--background-white);
     color: var(--secondary-slate);
-    width: 37%;
+    width: 30%;
     padding: 30px;
     border-radius: 16px;
     box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
-    /* border: 1px red solid; */
 }
 
 #rip-current .content .info-box .rip-escape .rip-title {
     width: 100%;
-    /* border: 1px red solid; */
 }
 
 #rip-current .content .info-box .rip-escape .escape-info {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     gap: 20px;
     width: 100%;
-    height: 70%;
-    /* border: 1px red solid; */
 }
 
 #rip-current .content .info-box .rip-escape .escape-info .escape-step {
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 30px;
+    gap: 20px;
     width: 100%;
 }
 
 #rip-current .content .info-box .rip-escape .escape-info .escape-step img {
-    height: 140px;
+    height: 100px;
 }
 
 #do-not-step{
@@ -156,7 +154,7 @@ body {
 }
 
 #rip-current .content .info-box .rip-escape .escape-info .escape-step .escape-step-content h3 {
-    font-size: 28px;
+    font-size: 24px;
 }
 
 #rip-current .content .info-box .rip-escape .escape-info .escape-step .escape-step-content p {
@@ -164,14 +162,14 @@ body {
 }
 
 .language-popup-overlay {
-    display: none; /* Hidden by default */
+    display: none;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.4); /* Dark transparent background */
-    z-index: 2; /* Positioned below the language popup but above other content */
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 2;
 }
 
 /* Language Popup */
@@ -179,15 +177,14 @@ body {
     display: none;
     position: absolute;
     bottom: 25px;
-    left: 30px; 
+    left: 30px;
     width: 350px;
     background-color: var(--background-white);
     color: var(--secondary-slate);
-    padding: 20px 25px 25px 25px; 
-    border-radius: 16px; 
+    padding: 20px 25px 25px 25px;
+    border-radius: 16px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-    z-index: 3; 
-    color: var(--secondary-slate);
+    z-index: 3;
 }
 
 .lan-content {
@@ -249,8 +246,8 @@ body {
 
 /* Language Options List */
 .language-options {
-    max-height: 210px; 
-    overflow-y: auto; 
+    max-height: 210px;
+    overflow-y: auto;
     margin-bottom: 20px;
 }
 
@@ -259,6 +256,7 @@ body {
     padding: 0;
     margin: 0;
 }
+
 .language-item {
     background-color: #f2f2f2;
     padding: 15px;
@@ -277,7 +275,7 @@ body {
     border: 1px solid #257bf4;
     display: flex;
     align-items: center;
-    justify-content: space-between; 
+    justify-content: space-between;
     padding: 15px;
     border-radius: 10px;
     cursor: pointer;
@@ -322,4 +320,23 @@ body {
 
 .language-btn:hover {
     background-color: #1e3a5f;
+}
+
+@media (max-width: 1155px) {
+    #rip-current .content .info-box {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        flex-grow: 1;
+        gap: 20px;
+        border: 1px solid red;
+    }
+
+    .rip-explain {
+        width: 100%;
+    }
+
+    #rip-current .content .info-box .rip-escape {
+        width: 100%;
+    }
 }
