@@ -183,7 +183,7 @@ body {
     left: 50%;
     transform: translateX(-50%);
 
-    width: 80%;
+    width: 85%;
     padding-bottom: env(safe-area-inset-bottom); /* Adjusts for the Safari tab bar */
     margin-bottom: 5%;
 
@@ -202,31 +202,44 @@ body {
     /* border: 1px solid red; */
 }
 
-.destination-info .nav-left-side {
+.destination-info .nav-top {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    color: var(--secondary-slate);
     gap: 7px;
     width: 100%;
     /* border: 1px solid red; */
 }
 
-.close-nav-icon {
-    padding: 10px;
-    border-radius: 100px;
-    background: var(--secondary-slate-10);
-    opacity: 0.4;
+.destination-subtitle {
+    font-size: 16px;
 }
 
 .destination-name {
-    font-size: 22px;
+    font-size: 24px;
     font-weight: bold;
-    color: var(--secondary-slate);
+    margin-bottom: 5%;
 }
 
-.time-distance {
-    font-size: 18px;
+.route-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 100%;
+}
+
+.destination-route-type,
+.destination-time,
+.destination-distance {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 14px;
+}
+
+.adjusted {
     font-weight: 500;
-    color: #2BB939;
 }
 
 .nav-btn {
