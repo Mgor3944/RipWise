@@ -1,6 +1,6 @@
 # RipWise
 
-RipWise is an interactive, digital beach safety tool designed to help beachgoers recognize and avoid dangerous rip currents and other hazards. With live data, safety cues, and interactive features, RipWise promotes informed decision-making for safer beach experiences.
+RipWise is a smart beach safety kiosk that uses live camera, machine learning and satelite imgary to identify safe swimming areas at unpatrolled Australian beaches, while providing real-time alerts and multilingual educational content about hazards like rip currents, sharks, and storms.
 
 ## Table of Contents
 - [Features](#features)
