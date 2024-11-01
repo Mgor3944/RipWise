@@ -1,4 +1,4 @@
-// Testing weather
+// Pulls all data when dom is loaded
 document.addEventListener('DOMContentLoaded', () => {
     getWeather();
     updateUvIndex();
@@ -7,11 +7,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function getWeather() {
     const apiKey = 'e717f95d40a7b743e3507b7b88cc9075';
-    const city = 'Bondi Beach';  // Change city to Bondi Beach
+    const city = 'Narrabeen';  //uses Narrabeen as a proxy for weather
 
     const currentWeatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`;
     const forecastUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}`;
 
+    // fetch weather
     fetch(currentWeatherUrl)
         .then(response => response.json())
         .then(data => {
@@ -33,6 +34,7 @@ function getWeather() {
         });
 }
 
+// displays the weather
 function displayWeather(data) {
     const tempDivInfo = document.getElementById('temp-div');
     const weatherInfoDiv = document.getElementById('weather-info');
@@ -44,10 +46,10 @@ function displayWeather(data) {
     hourlyForecastDiv.innerHTML = '';
     tempDivInfo.innerHTML = '';
 
+    // error handling
     if (data.cod === '404') {
         weatherInfoDiv.innerHTML = `<p>${data.message}</p>`;
     } else {
-        const cityName = 'Turimetta Beach';
         const temperature = Math.round(data.main.temp - 273.15); // Convert to Celsius
         const description = data.weather[0].description;
         const iconCode = data.weather[0].icon;
@@ -70,6 +72,7 @@ function displayWeather(data) {
     }
 }
 
+// append html
 function displayHourlyForecast(hourlyData) {
     const hourlyForecastDiv = document.getElementById('hourly-forecast');
 
@@ -94,12 +97,13 @@ function displayHourlyForecast(hourlyData) {
     });
 }
 
+// make image of weather icon visible
 function showImage() {
     const weatherIcon = document.getElementById('weather-icon');
     weatherIcon.style.display = 'block'; // Make the image visible once it's loaded
 }
 
-// Get UV
+// Get UV (and other data)
 function updateUvIndex() {
     fetch('https://api.open-meteo.com/v1/forecast?latitude=-33.8915&longitude=151.2767&current=wind_speed_10m,wind_direction_10m&hourly=wind_speed_10m,uv_index&timezone=Australia%2FSydney&past_hours=24&forecast_days=1&forecast_hours=24&cell_selection=nearest')
         .then(response => response.json())
@@ -223,11 +227,12 @@ function updateUvIndex() {
         .catch(error => console.error('Error fetching UV and wind data:', error));
 }
 
+// function to handle swell data
 function updateSwell() {
     fetch('https://marine-api.open-meteo.com/v1/marine?latitude=-33.8915&longitude=151.2767&hourly=wave_height,wave_direction,wave_period&length_unit=imperial&timezone=Australia%2FSydney&forecast_days=1&models=best_match')
     .then(response => response.json())
     .then(data => {
-        const waveHeight = data.hourly.wave_height;  // Assuming these keys are correct
+        const waveHeight = data.hourly.wave_height; 
         const waveDirection = data.hourly.wave_direction; 
         const wavePeriod = data.hourly.wave_period;
 
@@ -245,7 +250,7 @@ function updateSwell() {
         console.log(`Wave direction at hour ${currentHour}: ${currentWaveDirection} degrees`);
         console.log(`Wave period at hour ${currentHour}: ${currentWavePeriod} seconds`);
 
-        // Formula for calculating surf height from wave height and swell period
+        // Formula for calculating surf height from wave height and swell period- based on a rule of thumb
         let surfHeight = Math.round(currentWaveHeight * 0.55 * (currentWavePeriod / 10));
         let surfHeightBigger = surfHeight + 1;
         let surfHeightConjugated = `${surfHeight}-${surfHeightBigger}`;

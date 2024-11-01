@@ -1,12 +1,11 @@
 # RipWise
 
-RipWise is an smart beach safety kiosk designed to keep beachgoers safe at unpatrolled beaches by identifying rip currents, 
-displaying safe swimming zones, and providing multilingual education on beach hazards. Our system uses machine learning, live video feeds, 
-and satellite imaging to deliver real-time safety insights, targeting areas where traditional patrolling is unavailable.
+RipWise is a smart beach safety kiosk designed to keep beachgoers safe at unpatrolled beaches by identifying rip currents, 
+displaying safe swimming zones, and providing multilingual education on beach hazards. Our system uses machine learning and live video feeds 
+to deliver real-time safety insights, targeting areas where traditional beach patrolling is unavailable.
 
 ## Table of Contents
 - [Features](#features)
-- [Installation](#installation)
 - [Structure](#structure)
 
 ## Features
